@@ -20,7 +20,7 @@ class ArticelDetailResource extends JsonResource
             'content' => $this->content,
             'created_at' => date_format($this->created_at, "Y/m/d H:i:s"),
             'author' => $this->author,
-            'writer' => $this->writer,
+            'writer' => $this->whenLoaded('writer'),
         ];
     }
 }

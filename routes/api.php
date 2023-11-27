@@ -16,11 +16,19 @@ use App\Http\Controllers\AuthenticationController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/logout', [AuthenticationController::class, 'logout']);
+    Route::get('/me', [AuthenticationController::class, 'me']);
+    Route::post('/articels', [ArticelController::class, 'store']);
+    Route::patch('/articels/{id}', [ArticelController::class, 'update'])->middleware('pemilik-artikel');
+    Route::delete('/articels/{id}', [ArticelController::class, 'destroy'])->middleware('pemilik-artikel');
 });
 
-Route::get('/articels',[ArticelController::class, 'index'])->middleware(['auth:sanctum']);
-Route::get('/articels/{id}',[ArticelController::class, 'show'])->middleware(['auth:sanctum']);
+Route::get('/articels',[ArticelController::class, 'index']);
+Route::get('/articels/{id}',[ArticelController::class, 'show']);
 
 Route::post('/login', [AuthenticationController::class, 'login']);
