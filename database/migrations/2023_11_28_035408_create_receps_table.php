@@ -19,7 +19,11 @@ return new class extends Migration
             $table->string('porsi');
             $table->string('waktu');
             $table->string('deskripsi', 255);
+            $table->unsignedBigInteger('author');
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('author')->references('id')->on('users');
         });
     }
 
