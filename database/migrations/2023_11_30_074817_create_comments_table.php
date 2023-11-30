@@ -13,18 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detail_receps', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('recep_id');
-            $table->unsignedBigInteger('user_id');
-            $table->string('bahan', 255);
-            $table->string('langkah', 255);
-            $table->string('image');
+            $table->text('comment_recep', 255);
+            $table->unsignedBigInteger('receps');
+            $table->unsignedBigInteger('author');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('recep_id')->references('id')->on('receps');
-            $table->foreign('user_id')->references('id')->on('users');
+            
+            $table->foreign('receps')->references('id')->on('receps');
+            $table->foreign('author')->references('id')->on('users');
         });
     }
 
@@ -35,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_receps');
+        Schema::dropIfExists('comments');
     }
 };

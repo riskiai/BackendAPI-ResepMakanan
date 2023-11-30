@@ -20,11 +20,11 @@ class RecepDetailResource extends JsonResource
             'porsi' => $this->porsi,
             'waktu' => $this->waktu,
             'deskripsi' => $this->deskripsi,
-            'author' => $this->author,
-            'writer' => $this->whenLoaded('writer'),
             'bahan' => $this->bahan,
             'langkah' => $this->langkah,
             'image' => $this->image,
+            'author' => $this->author,
+            'writer' => $this->whenLoaded('writer'),
             'created_at' => date_format($this->created_at, "Y/m/d H:i:s"),
         ];
     }

@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('porsi');
             $table->string('waktu');
             $table->string('deskripsi', 255);
+            $table->text('bahan')->nullable();
+            $table->text('langkah')->nullable();
+            $table->string('image')->nullable();
             $table->unsignedBigInteger('author');
             $table->timestamps();
             $table->softDeletes();

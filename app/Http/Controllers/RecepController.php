@@ -18,7 +18,7 @@ class RecepController extends Controller
 
     public function show($id)
     {
-        $recep = Recep::with('writer')->findOrFail($id);
+        $recep = Recep::with('writer:id,username')->findOrFail($id);
         return new RecepDetailResource($recep);
     }
 }

@@ -20,6 +20,7 @@ class RecepResource extends JsonResource
             'porsi' => $this->porsi,
             'waktu' => $this->waktu,
             'deskripsi' => $this->deskripsi,
+            'image' => $this->image,
             'author' => $this->author,
             'created_at' => date_format($this->created_at, "Y/m/d H:i:s")
         ];
