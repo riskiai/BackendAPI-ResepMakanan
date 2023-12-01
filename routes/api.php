@@ -27,7 +27,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/articels', [ArticelController::class, 'store']);
     Route::patch('/articels/{id}', [ArticelController::class, 'update'])->middleware('pemilik-artikel');
     Route::delete('/articels/{id}', [ArticelController::class, 'destroy'])->middleware('pemilik-artikel');
+    Route::post('/receps', [RecepController::class, 'store']);
 });
+
 
 Route::get('/receps',[RecepController::class, 'index']);
 Route::get('/receps/{id}',[RecepController::class, 'show']);

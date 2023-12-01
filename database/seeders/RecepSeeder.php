@@ -17,14 +17,14 @@ class RecepSeeder extends Seeder
         // Sample data for 'receps' table
         DB::table('receps')->insert([
             'judul_resep' => 'Nasi Goreng Spesial',
-            'porsi' => '3',
+            'porsi' => '3 Porsi',
             'waktu' => '50 menit',
             'deskripsi' => 'Nasi goreng adalah makanan berupa nasi yang digoreng dan dicampur dalam minyak goreng, margarin, atau mentega. Biasanya ditambah dengan kecap manis, bawang merah, bawang putih, asam jawa, lada dan bahan lainnya; seperti telur, daging ayam, dan kerupuk.',
             'bahan' => '1. Sediakan Nasi,
                         2. Minyak Goreng,
                         3. Bawang Putih dan Bawang Merah,
                         4. Penyedap',
-            'langkah' => 
+            'langkah' =>
                 '1. Haluskan bumbu bawang merah dan bawang putih,
                 2. Tumis bumbu ke wajan,
                 3. Masukkan nasi kedalam bumbu dan tambahkan penyedap,
@@ -35,13 +35,13 @@ class RecepSeeder extends Seeder
 
         DB::table('receps')->insert([
             'judul_resep' => 'Seblak Bandung Mantap',
-            'porsi' => '4',
+            'porsi' => '4 Porsi',
             'waktu' => '45 menit',
             'deskripsi' => 'Seblak adalah masakan khas Sunda yang berasal dari wilayah Parahyangan dengan cita rasa gurih dan pedas. Seblak umumnya terbuat dari kerupuk yang terdiri dari bawang putih dengan kencur. ',
-            'bahan' => 
+            'bahan' =>
                 '1. Bawang merah dan bawang putih,
                 2. Kencur,
-                3. Krupuk, Makaroni, 
+                3. Krupuk, Makaroni,
                 4. Mie dan Sayuran,
                 5. Penyedap makanan',
             'langkah' =>
