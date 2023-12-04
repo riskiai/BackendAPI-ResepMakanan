@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataTableController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImportexcelController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ResepController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +52,23 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::put('/article/update/{id}', [ArticleController::class, 'update'])->name('article.update');
     Route::delete('/article/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete');
 
+    /* CRUD RESEP */
+    Route::get('/resep', [ResepController::class, 'index'])->name('resep.index');
+    
+    /* Comment Dan Detail */
+    Route::get('/resep/show/{id}', [ResepController::class, 'show'])->name('resep.show');
+    Route::post('/resep/add-comment/{id}', [ResepController::class, 'addComment'])->name('resep.addComment');
+
+    Route::get('/resep/create', [ResepController::class, 'create'])->name('resep.create');
+    Route::post('/resep/store', [ResepController::class, 'store'])->name('resep.store');
+    Route::get('/resep/edit/{id}', [ResepController::class, 'edit'])->name('resep.edit');
+    Route::put('/resep/update/{id}', [ResepController::class, 'update'])->name('resep.update');
+    Route::delete('/resep/delete/{id}', [ResepController::class, 'delete'])->name('resep.delete');
+
+    /* DATA COMMENTS RELASI */
+    Route::get('/comment', [CommentController::class, 'index'])->name('comment.index');
+    Route::delete('/comment/delete/{id}', [CommentController::class, 'delete'])->name('comment.delete');
+
     /* DATA TABLE */
     Route::get('/clientside', [DataTableController::class, 'clientside'])->name('datatable.clientside');
     Route::get('/serverside', [DataTableController::class, 'serverside'])->name('datatable.serverside');
@@ -62,6 +81,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     });
 
 });
+
+
 
 
 

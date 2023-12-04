@@ -48,4 +48,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Article::class);
     }
+
+     // User.php (model)
+     public function reseps()
+     {
+         return $this->hasMany(Resep::class);
+     }
+
+    // User.php (model)
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

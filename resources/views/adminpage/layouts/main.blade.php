@@ -238,7 +238,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('admin.user.index') }}" class="nav-link">
+            <a href="{{ route('admin.comment.index') }}" class="nav-link">
               <i class="nav-icon far fa-comments"></i>
               <p>
                 Comment User
@@ -298,7 +298,7 @@
           <li class="nav-header">DATA APLIKASI </li>
 
           <li class="nav-item">
-            <a href="{{ route('admin.article.index') }}" class="nav-link">
+            <a href="{{ route('admin.resep.index') }}" class="nav-link">
               <i class="nav-icon  fas fa-utensils"></i>
               <p>
                   Data Resep

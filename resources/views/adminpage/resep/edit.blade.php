@@ -7,13 +7,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Edit Article</h1>
+            <h1 class="m-0">Edit Resep</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ route('admin.article.index') }}">Back</a></li>
-              <li class="breadcrumb-item active">Edit Article</li>
+              <li class="breadcrumb-item"><a href="{{ route('admin.resep.index') }}">Back</a></li>
+              <li class="breadcrumb-item active">Edit Resep</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -25,7 +25,7 @@
     <section class="content">
         <div class="container-fluid">
             
-        <form action="{{ route('admin.article.update',['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.resep.update',['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
                 <div class="row">
@@ -34,7 +34,7 @@
                       <!-- general form elements -->
                       <div class="card card-primary">
                         <div class="card-header">
-                          <h3 class="card-title">Form Edit User</h3>
+                          <h3 class="card-title">Form Edit Resep</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -45,7 +45,7 @@
                               <label for="exampleInputFile">Foto Profil</label>
                               <input type="file" name="image" class="form-control" id="exampleInputFile">
                               @if($data->image)
-                                 <img src="{{ asset('storage/photo-article/'.$data->image) }}" alt="" width="100">
+                                 <img src="{{ asset('storage/photo-resep/'.$data->image) }}" alt="" width="100">
                                  <br>
                                  <input type="checkbox" name="remove_image" id="remove_image"> Hapus gambar yang ada
                               @endif
@@ -62,6 +62,22 @@
                                   <small>{{ $message }}</small>
                               @enderror
                             </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Durasi Masak </label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="waktu" value="{{ $data->waktu }}" placeholder="Enter Durasi Masak">
+                                @error('waktu')
+                                    <small>{{ $message }}</small>
+                                @enderror
+                              </div>
+
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Bahan Dan Langkah </label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="bahan_langkah" value="{{ $data->bahan_langkah }}" placeholder="Enter Bahan Dan Langkah">
+                                @error('bahan_langkah')
+                                    <small>{{ $message }}</small>
+                                @enderror
+                              </div>
                          
                         
                             <div class="form-group">

@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Article</h1>
+            <h1 class="m-0">Halaman Comment</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Article</li>
+              <li class="breadcrumb-item active">Data Comment Resep</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -27,11 +27,11 @@
             <div class="col-12">
 
                 {{-- Create Data Baru --}}
-                <a href="{{ route('admin.article.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
+                {{-- <a href="{{ route('admin.article.create') }}" class="btn btn-primary mb-3">Tambah Data</a> --}}
 
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Data Article</h3>
+                  <h3 class="card-title">Data Comment Resep</h3>
   
                   <div class="card-tools">
 
@@ -56,33 +56,28 @@
                       <tr>
                         <th>No</th>
                         <th>Pembuat</th>
-                        <th>Photo</th>
-                        <th>Judul</th>
-                        <th>Description</th>
+                        <th>Judul Resep</th>
+                        <th>Comment Resep</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                    @foreach ($data as $dataArticle)
-                        <tr>
-                          <td>{{ $loop->iteration + ($data->perPage() * ($data->currentPage() - 1)) }}</td>
-                          <td>{{ $dataArticle->user->name }}</td>
-
-                            <td>
-                              @if($dataArticle->image)
-                                   <img src="{{ asset('storage/photo-article/' . $dataArticle->image) }}" alt="" width="50">
-                              @else
-                                  <span>Tidak Ada Gambar</span>
-                              @endif
-                            </td>
-                            <td>{{ $dataArticle->judul }}</td>
-                            <td>{{ $dataArticle->description }}</td>
-                            <td>
-                                <a href="{{ route('admin.article.edit', ['id' => $dataArticle->id]) }}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
-                                <a data-toggle="modal" data-target="#modal-hapus{{ $dataArticle->id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</a>
-                            </td>
-                        </tr>
-                        <div class="modal fade" id="modal-hapus{{ $dataArticle->id }}">
+                    @foreach ($data as $dataComment)
+                      <tr>
+                        <td>{{ $loop->iteration + ($data->perPage() * ($data->currentPage() - 1)) }}</td>
+                        
+                        <td>{{ $dataComment->user->name }}</td>
+                        <td>{{ $dataComment->resep->judul }}</td>
+                        {{-- <td>{{ $dataComment->resep->judul }}</td> --}}
+                        <td>{{ $dataComment->comment_resep }}</td>
+                        <td>
+                            <a data-toggle="modal" data-target="#modal-hapus{{ $dataComment->id }}" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i>Delete
+                            </a>
+                        </td>
+                    </tr>
+                  
+                        <div class="modal fade" id="modal-hapus{{  $dataComment->id }}">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -92,10 +87,10 @@
                                 </button>
                               </div>
                               <div class="modal-body">
-                                <p>Apakah Kamu yakin ingin menghapus data Judul Article <b>{{ $dataArticle->judul; }}</b></p>
+                                <p>Apakah Kamu yakin ingin menghapus data Comment Resep <b>{{  $dataComment->comment_resep }}</b></p>
                               </div>
                               <div class="modal-footer justify-content-between">
-                                <form action="{{ route('admin.article.delete', ['id' => $dataArticle->id]) }}" method="POST">
+                                <form action="{{ route('admin.comment.delete', ['id' =>  $dataComment->id]) }}" method="POST">
                                   @csrf
                                   @method('DELETE')
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
