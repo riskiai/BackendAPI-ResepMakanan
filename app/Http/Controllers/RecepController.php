@@ -39,4 +39,30 @@ class RecepController extends Controller
         $recep = Recep::create($request->all());
         return new RecepDetailResource($recep->loadMissing('writer:id,username'));
     }
+
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'judul_resep' => 'required|max:255',
+            'porsi' => 'required',
+            'waktu' => 'required',
+            'deskripsi' => 'required',
+            'bahan' => 'required',
+            'langkah' => 'required',
+            'image' => 'nullable',
+        ]);
+
+        $recep = Recep::findOrFail($id);
+        $recep->update($request->all());
+
+        return new RecepDetailResource($recep->loadMissing('writer:id,username'));
+    }
+
+    public function destroy($id)
+    {
+        $recep = Recep::findOrFail($id);
+        $recep->delete();
+
+        return new RecepDetailResource($recep->loadMissing('writer:id,username'));
+    }
 }

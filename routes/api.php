@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecepController;
 use App\Http\Controllers\ArticelController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AuthenticationController;
 
 /*
@@ -28,6 +29,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::patch('/articels/{id}', [ArticelController::class, 'update'])->middleware('pemilik-artikel');
     Route::delete('/articels/{id}', [ArticelController::class, 'destroy'])->middleware('pemilik-artikel');
     Route::post('/receps', [RecepController::class, 'store']);
+    Route::patch('/receps/{id}', [RecepController::class, 'update'])->middleware('pemilik-recep');
+    Route::delete('/receps/{id}', [RecepController::class, 'destroy'])->middleware('pemilik-recep');
+
+    Route::post('/comment', [CommentController::class, 'store']);
 });
 
 
