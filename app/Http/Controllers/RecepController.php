@@ -14,13 +14,13 @@ class RecepController extends Controller
     {
         $receps = Recep::all();
         // return response()->json(['data' => $receps]);
-        return RecepDetailResource::collection($receps->loadMissing('writer:id,username'));
+        return RecepDetailResource::collection($receps->loadMissing(['writer:id,username', 'comments:id,receps_id,user_id,comment_recep']));
     }
 
     public function show($id)
     {
         $recep = Recep::with('writer:id,username')->findOrFail($id);
-        return new RecepDetailResource($recep);
+        return new RecepDetailResource($recep->loadMissing(['writer:id,username', 'comments:id,receps_id,user_id,comment_recep']));
     }
 
     public function store(Request $request)

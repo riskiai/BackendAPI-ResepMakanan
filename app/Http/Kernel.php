@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'pemilik-artikel' => \App\Http\Middleware\PemilikArtikel::class,
         'pemilik-recep' => \App\Http\Middleware\PemilikRecep::class,
+        'pemilik-komentar' => \App\Http\Middleware\PemilikKomentar::class,
     ];
 }

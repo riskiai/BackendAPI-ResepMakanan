@@ -33,6 +33,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::delete('/receps/{id}', [RecepController::class, 'destroy'])->middleware('pemilik-recep');
 
     Route::post('/comment', [CommentController::class, 'store']);
+    Route::patch('/comment/{id}', [CommentController::class, 'update'])->middleware('pemilik-komentar');
+    Route::delete('/comment/{id}', [CommentController::class, 'destroy'])->middleware('pemilik-komentar');
 });
 
 

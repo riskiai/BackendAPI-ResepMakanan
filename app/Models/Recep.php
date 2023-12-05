@@ -6,6 +6,7 @@ use App\Models\Recep;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -27,5 +28,15 @@ class Recep extends Model
     public function writer(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author', 'id');
+    }
+
+    /**
+     * Get all of the comments for the Recep
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class, 'receps_id', 'id');
     }
 }
