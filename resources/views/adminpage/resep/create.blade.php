@@ -65,8 +65,16 @@
                               </div>
 
                               <div class="form-group ">
+                                <label for="exampleInputEmail1">Porsi Masak </label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="porsi" placeholder="Enter Porsi Masak">
+                                @error('porsi')
+                                    <small>{{ $message }}</small>
+                                @enderror
+                              </div>
+
+                              <div class="form-group ">
                                 <label for="exampleInputEmail1">Bahan Dan Langkah </label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" name="bahan_langkah" placeholder="Enter Waktu">
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="bahan_langkah" placeholder="Enter Bahan Dan langkah">
                                 @error('bahan_langkah')
                                     <small>{{ $message }}</small>
                                 @enderror

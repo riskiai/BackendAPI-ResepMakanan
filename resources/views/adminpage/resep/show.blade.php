@@ -37,6 +37,7 @@
                                     <th>Judul</th>
                                     <th>Description</th>
                                     <th>Durasi Masak</th>
+                                    <th>Porsi</th>
                                     <th>Bahan Dan Langkah</th>
                                 </tr>
                             </thead>
@@ -54,6 +55,7 @@
                                     <td>{{ $data->judul }}</td>
                                     <td>{{ $data->description }}</td>
                                     <td>{{ $data->waktu }}</td>
+                                    <td>{{ $data->porsi }}</td>
                                     <td>{{ $data->bahan_langkah }}</td>
                                 </tr>
                             </tbody>

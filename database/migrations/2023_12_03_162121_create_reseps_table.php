@@ -19,6 +19,7 @@ class CreateResepsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('waktu');
             $table->string('judul');
+            $table->string('porsi');
             $table->string('image')->nullable();
             $table->text('description');
             $table->text('bahan_langkah');

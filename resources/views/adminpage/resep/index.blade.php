@@ -60,6 +60,7 @@
                         <th>Judul</th>
                         <th>Description</th>
                         <th>Durasi Masak</th>
+                        <th>Porsi</th>
                         <th>Bahan Dan Langkah</th>
                         <th>Action</th>
                       </tr>
@@ -80,6 +81,7 @@
                             <td>{{ $dataResep->judul }}</td>
                             <td>{{ $dataResep->description }}</td>
                             <td>{{ $dataResep->waktu }}</td>
+                            <td>{{ $dataResep->porsi }}</td>
                             <td>{{ $dataResep->bahan_langkah }}</td>
                             <td>
                                 <a href="{{ route('admin.resep.edit', ['id' => $dataResep->id]) }}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>

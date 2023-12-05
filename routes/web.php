@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DataTableController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ImportexcelController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ResepController;
+use App\Http\Controllers\Adminpage\ArticleController;
+use App\Http\Controllers\Adminpage\CommentController;
+use App\Http\Controllers\Adminpage\DashboardController;
+use App\Http\Controllers\Adminpage\DataTableController;
+use App\Http\Controllers\Adminpage\HomeController;
+use App\Http\Controllers\Adminpage\ImportexcelController;
+use App\Http\Controllers\Adminpage\LoginController;
+use App\Http\Controllers\Adminpage\ResepController;
 use Illuminate\Support\Facades\Route;
 
 /*
