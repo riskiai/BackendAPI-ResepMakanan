@@ -13,7 +13,7 @@ class CommentController extends Controller
     
         /* Melakukan Filter Data */
         if ($request->get('search')) {
-            $query->where('comment_resep', 'LIKE', '%' . $request->get('search') . '%');
+            $query->where('comment_resep', 'LIKE', '%' . $request->get('search') . '%'); 
         }
     
         $data = $query->paginate(5);

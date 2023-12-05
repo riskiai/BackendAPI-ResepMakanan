@@ -55,7 +55,7 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Pembuat</th>
+                        <th>Nama Pengomentar</th>
                         <th>Judul Resep</th>
                         <th>Comment Resep</th>
                         <th>Action</th>
