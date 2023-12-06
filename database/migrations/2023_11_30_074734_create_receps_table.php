@@ -18,9 +18,8 @@ return new class extends Migration
             $table->string('judul_resep', 255);
             $table->string('porsi');
             $table->string('waktu');
-            $table->string('deskripsi', 255);
-            $table->text('bahan')->nullable();
-            $table->text('langkah')->nullable();
+            $table->text('deskripsi', 255);
+            $table->text('bahan_langkah')->nullable();
             $table->string('image')->nullable();
             $table->unsignedBigInteger('author');
             $table->timestamps();

@@ -15,7 +15,7 @@ class Recep extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'judul_resep', 'porsi', 'waktu', 'deskripsi', 'bahan', 'langkah', 'image', 'author'
+        'judul_resep', 'porsi', 'waktu', 'deskripsi', 'bahan_langkah', 'image', 'author'
     ];
 
     //create json mutator for data
