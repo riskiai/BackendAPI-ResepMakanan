@@ -52,11 +52,14 @@ class PermissionSeeder extends Seeder
         $role_superadmin->givePermissionTo($permission);
         $role_admin->givePermissionTo($permission2);
 
+        /* Mendaftarkan role Untuk User */
         $user = User::find(1);
         $user2 = User::find(2);
+        $user3 = User::find(3);
 
         /* Memanggil untuk daftar user yang terverifikasi */
         $user->assignRole('superadmin');
+        $user3->assignRole('superadmin');
         $user2->assignRole('admin');
     }
 }

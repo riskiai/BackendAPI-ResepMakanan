@@ -239,15 +239,6 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('admin.comment.index') }}" class="nav-link">
-              <i class="nav-icon far fa-comments"></i>
-              <p>
-                Comment User
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-file-alt"></i>
               <p>
@@ -316,8 +307,17 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.comment.index') }}" class="nav-link">
+              <i class="nav-icon far fa-comments"></i>
+              <p>
+                Data Comment User
+              </p>
+            </a>
+          </li>
           @endrole
-          
+
           <li class="nav-item">
             <a href="{{ route('logout') }}" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>

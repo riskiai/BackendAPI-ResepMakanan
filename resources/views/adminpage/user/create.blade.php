@@ -55,9 +55,6 @@
                                   <small>{{ $message }}</small>
                               @enderror
                             </div>
-                         
-                          
-                            
                           
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nama</label>
@@ -66,9 +63,19 @@
                                   <small>{{ $message }}</small>
                               @enderror
                               </div>
-                         
 
-                           
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Peran</label>
+                                <select name="role" class="form-control">
+                                    @foreach($roles as $role)
+                                        <option value="{{ $role->name }}">{{ $role->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('role')
+                                    <small>{{ $message }}</small>
+                                @enderror
+                            </div>
+                         
                             <div class="form-group">
                               <label for="exampleInputPassword1">Password</label>
                               <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">

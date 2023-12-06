@@ -58,6 +58,7 @@
                         <th>Photo</th>
                         <th>Nama</th>
                         <th>Email</th>
+                        <th>Role</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -75,6 +76,13 @@
                             </td>
                             <td>{{ $dataUser->name }}</td>
                             <td>{{ $dataUser->email }}</td>
+
+                            <td>
+                              @foreach($dataUser->roles as $role)
+                                  {{ $role->name }}
+                              @endforeach
+                            </td>
+
                             <td>
                                 <a href="{{ route('admin.user.edit', ['id' => $dataUser->id]) }}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
                                 <a data-toggle="modal" data-target="#modal-hapus{{ $dataUser->id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</a>

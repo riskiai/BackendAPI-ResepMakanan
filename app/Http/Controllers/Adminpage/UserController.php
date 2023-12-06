@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Adminpage;
 
 
-use App\Http\Controllers\Controller;
-
 use App\Models\User;
+
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -38,7 +39,8 @@ class UserController extends Controller
     
 
     public function create(){
-        return view('adminpage.user.create');
+        $roles = Role::all();
+        return view('adminpage.user.create', compact('roles'));
     }
 
     public function store(Request $request){
@@ -46,6 +48,7 @@ class UserController extends Controller
             'image' => 'required|mimes:png,jpg,jpeg|max:2048',
             'email' => 'required|email', 
             'name' => 'required',
+            'role'    => 'required|exists:roles,name',
             'password' => 'required',
         ]);
 
@@ -65,7 +68,8 @@ class UserController extends Controller
         $data['password']   = Hash::make($request->password);
         $data['image']      = $filename;
 
-        User::create($data);
+        $user = User::create($data);
+        $user->assignRole($request->role);
 
         return redirect()->route('admin.user.index');
     }
