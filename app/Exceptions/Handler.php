@@ -38,4 +38,16 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    /* Untuk Melakukan Exception Ketika Dia Bukan Role nya atau permissionnya  */
+    // public function render($request, Throwable $e)
+    // {
+    //     if ($e instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
+    //         return redirect()->route('dashboard')->with('failed', 'Anda Tidak Memiliki akses ke halaman tersebut');
+    //     }
+    
+    //     return parent::render($request, $e);
+    // }
+    
+
 }

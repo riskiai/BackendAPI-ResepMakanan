@@ -227,6 +227,7 @@
             </a>
           </li>
 
+          @role('superadmin')
           <li class="nav-header">DATA USER</li>
           <li class="nav-item">
             <a href="{{ route('admin.user.index') }}" class="nav-link">
@@ -293,8 +294,9 @@
               </li>
             </ul>
           </li>
+          @endrole
 
-
+          @role('admin')
           <li class="nav-header">DATA APLIKASI </li>
 
           <li class="nav-item">
@@ -314,7 +316,8 @@
               </p>
             </a>
           </li>
-
+          @endrole
+          
           <li class="nav-item">
             <a href="{{ route('logout') }}" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>
@@ -323,7 +326,7 @@
               </p>
             </a>
           </li>
-
+      
 
          {{--  <li class="nav-item">
             <a href="#" class="nav-link">
@@ -433,7 +436,7 @@
     <script>
         Swal.fire({
         icon: "success",
-        title: "Oops..",
+        title: "Mantap",
         text: "{{ $message }}",
         });
     </script>

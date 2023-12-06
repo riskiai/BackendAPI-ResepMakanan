@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Adminpage;
+namespace App\Http\Controllers\Adminpage\auth;
 
 
 use App\Http\Controllers\Controller;
@@ -35,7 +35,7 @@ class LoginController extends Controller
         ];
 
         if(Auth::attempt($data)){
-            return redirect()->route('admin.dashboard')->with('success', 'Berhasil Login');
+            return redirect()->route('admin.dashboard')->with('success', 'Kamu Berhasil Login');
         }else{
             return redirect()->route('login')->with('failed', 'Email Atau Password Salah');
         }
@@ -47,25 +47,6 @@ class LoginController extends Controller
         return redirect()->route('login')->with('success', 'Kamu Berhasil Logout');
     }
     
-    public function register(){
-        return view('adminpage.auth.register');
-    }
-
-    public function register_proses(Request $request){
-        $request->validate([
-            'name' => 'required', 
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6'
-        ]);
-
-        $data['name'] = $request->name;
-        $data['email'] = $request->email;
-        $data['password'] = Hash::make($request->password);
-
-        User::create($data);
-        
-        return redirect()->route('login')->with('success', 'Registrasi berhasil. Silakan login.');
-
-    }
+   
     
 }

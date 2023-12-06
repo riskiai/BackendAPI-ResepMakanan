@@ -1,4 +1,12 @@
 @extends('adminpage.layouts.main')
+@section('css')
+<style>
+   .description-cell {
+    max-height: 60px; /* Adjust the height as needed */
+    overflow-y: auto;
+}
+</style>
+@endsection
 @section('content')
 
 <div class="content-wrapper">
@@ -79,7 +87,14 @@
                               @endif
                             </td>
                             <td>{{ $dataResep->judul }}</td>
-                            <td>{{ $dataResep->description }}</td>
+                            <td class="description-cell">
+                              @php
+                                  $words = explode(' ', $dataResep->description);
+                                  $limitedWords = array_slice($words, 0, 10);
+                                  echo implode(' ', $limitedWords);
+                                  if (count($words) > 20) echo '...';
+                              @endphp
+                          </td>
                             <td>{{ $dataResep->waktu }}</td>
                             <td>{{ $dataResep->porsi }}</td>
                             <td>{{ $dataResep->bahan_langkah }}</td>

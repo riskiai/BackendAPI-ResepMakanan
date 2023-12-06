@@ -1,14 +1,17 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Adminpage\UserController;
+use App\Http\Controllers\Adminpage\ResepController;
 use App\Http\Controllers\Adminpage\ArticleController;
 use App\Http\Controllers\Adminpage\CommentController;
 use App\Http\Controllers\Adminpage\DashboardController;
+
 use App\Http\Controllers\Adminpage\DataTableController;
-use App\Http\Controllers\Adminpage\HomeController;
+use App\Http\Controllers\Adminpage\auth\LoginController;
+
 use App\Http\Controllers\Adminpage\ImportexcelController;
-use App\Http\Controllers\Adminpage\LoginController;
-use App\Http\Controllers\Adminpage\ResepController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Adminpage\auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,19 +33,19 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/register', [LoginController::class, 'register'])->name('register');
-Route::post('/register_proses', [LoginController::class, 'register_proses'])->name('register-proses');
+Route::get('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('/register_proses', [RegisterController::class, 'register_proses'])->name('register-proses');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function(){
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     /* CRUD USER */
-    Route::get('/user', [HomeController::class, 'index'])->name('user.index');
-    Route::get('/create', [HomeController::class, 'create'])->name('user.create');
-    Route::post('/store', [HomeController::class, 'store'])->name('user.store');
-    Route::get('/edit/{id}', [HomeController::class, 'edit'])->name('user.edit');
-    Route::put('/update/{id}', [HomeController::class, 'update'])->name('user.update');
-    Route::delete('/delete/{id}', [HomeController::class, 'delete'])->name('user.delete');
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::get('/create', [UserController::class, 'create'])->name('user.create');
+    Route::post('/store', [UserController::class, 'store'])->name('user.store');
+    Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/update/{id}', [UserController::class, 'update'])->name('user.update');
+    Route::delete('/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
 
     /* CRUD ARTICLE */
     Route::get('/article', [ArticleController::class, 'index'])->name('article.index');

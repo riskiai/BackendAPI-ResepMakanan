@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -50,5 +51,12 @@ class PermissionSeeder extends Seeder
         // Cara Untuk Ngasih Permissions Fitur Untuk Role
         $role_superadmin->givePermissionTo($permission);
         $role_admin->givePermissionTo($permission2);
+
+        $user = User::find(1);
+        $user2 = User::find(2);
+
+        /* Memanggil untuk daftar user yang terverifikasi */
+        $user->assignRole('superadmin');
+        $user2->assignRole('admin');
     }
 }

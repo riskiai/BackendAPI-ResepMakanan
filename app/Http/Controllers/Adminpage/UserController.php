@@ -11,8 +11,15 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
-class HomeController extends Controller
+class UserController extends Controller
 {
+
+    /* Membuat Permission Untuk Sebuah Satu Method controller penuh */
+    // public function __construct()
+    // {
+    //     // $this->middleware('role:admin|superadmin');
+    //     $this->middleware(['permission:view_dashboard']);
+    // }
 
     public function index(Request $request)
     {
