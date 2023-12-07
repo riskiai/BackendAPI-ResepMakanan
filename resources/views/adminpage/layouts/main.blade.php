@@ -312,7 +312,7 @@
             <a href="{{ route('admin.comment.index') }}" class="nav-link">
               <i class="nav-icon far fa-comments"></i>
               <p>
-                Data Comment User
+                Data Comment 
               </p>
             </a>
           </li>
