@@ -20,6 +20,9 @@ Route::get('/resep', [FrontEndController::class,'resep'])->name('resep');
 Route::get('/artikel', [FrontEndController::class,'artikel'])->name('artikel');
 Route::get('/detail-artikel', [FrontEndController::class,'detailArtikel'])->name('detailArtikel');
 Route::get('/detail-resep', [FrontEndController::class,'detailResep'])->name('detailResep');
+Route::get('/login', [FrontEndController::class,'login'])->name('login');
+Route::get('/register', [FrontEndController::class,'register'])->name('register');
+
 
 
 // Route::get('/', [FrontEndController::class,'index'])->name('index');

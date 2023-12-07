@@ -8,7 +8,7 @@
                 <h1>ini resep nasi goreng asli khas mamang nizar</h1>
                 <p>kamis,23 nov 2023 10:48 WIB</p>
                 <div class="col-lg-11 col-12 pb-5 ">
-                    <img class="img-fluid w-100" src="img/nasi-goreng.png"  alt="">
+                    <img class="img-fluid w-100" src="{{url('frontend/img/nasi-goreng.png')}}"  alt="">
                 </div>
                 <div class="col-12">
                     <p>ini adalah resep khas mamang nizar nasi goreng ini beda dari nasi goreng yang biasa kita buat nasi goreng ini hanya menggunakan bahan biasa .

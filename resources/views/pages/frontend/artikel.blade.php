@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-12 order-2 order-lg-0 position-relative ">
-                    <img src="img/nasi-goreng.png" alt="" class="w-100">
+                    <img src="{{url('frontend/img/nasi-goreng.png')}}" alt="" class="w-100">
                     <p class="p-0">1 jam yang lalu</p>
                     <h3>ini resep nasi goreng asli khas  mamang nizar</h3>
                     <a href="#" class="stretched-link p-0 text-black text-decoration-none">ini adalah resep khas mamang nizar nasi goreng ini beda dari nasi goreng yang biasa kita buat nasi goreng ini hanya menggunakan bahan...</a>
@@ -39,7 +39,7 @@
             <div class="row mt-5 mb-5">
                 <div class="d-flex flex-column flex-md-row align-items-center card-artikel p-3 position-relative">
                     <div class="col-md-4 col-12">
-                        <img class="w-100" src="img/nasi-goreng.png" alt="nasi-goreng">
+                        <img class="w-100" src="{{('frontend/img/nasi-goreng.png')}}" alt="nasi-goreng">
                     </div>
                     <div class="card-desc col-md-8 col-12 ps-md-3">
                         <h3>ini resep nasi goreng</h3>

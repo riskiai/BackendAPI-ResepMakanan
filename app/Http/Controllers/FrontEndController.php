@@ -14,26 +14,36 @@ class FrontEndController extends Controller
         return view('pages.frontend.index',compact('posts'));
         // return view("pages.tesapi",compact("posts'));
     }
+
     public function bahan (){
         return view('pages.frontend.bahan');
-        // return view("pages.tesapi",compact("posts'));
     }
+
     public function resep (){
         return view('pages.frontend.resep');
-        // return view("pages.tesapi",compact("posts'));
     }
+
     public function detailResep (){
         return view('pages.frontend.detail-resep');
-        // return view("pages.tesapi",compact("posts'));
     }
+
     public function artikel (){
         return view('pages.frontend.artikel');
-        // return view("pages.tesapi",compact("posts'));
     }
+
     public function detailArtikel (){
         return view('pages.frontend.detail-artikel');
-        // return view("pages.tesapi",compact("posts'));
     }
+
+
+    public function login(){
+        return view('pages.frontend.login');
+    }
+
+    public function register(){
+        return view('pages.frontend.register');
+    }
+
 
 
 }
