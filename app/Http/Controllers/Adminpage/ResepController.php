@@ -84,8 +84,11 @@ class ResepController extends Controller
         $data['judul']      = $request->judul;
         $data['waktu']      = $request->waktu;
         $data['porsi']      = $request->porsi;
-        $data['bahan_langkah']      = $request->bahan_langkah;
-        $data['description']       = $request->description;
+        
+        // Decode HTML entities before saving to the database
+        $data['description'] = htmlspecialchars_decode($request->description);
+        $data['bahan_langkah'] = htmlspecialchars_decode($request->bahan_langkah);
+
         $data['image']      = $filename;
 
         Resep::create($data);

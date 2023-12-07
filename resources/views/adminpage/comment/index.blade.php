@@ -69,7 +69,7 @@
                         <td>{{ $dataComment->user->name }}</td>
                         <td>{{ $dataComment->resep->judul }}</td>
                         {{-- <td>{{ $dataComment->resep->judul }}</td> --}}
-                        <td>{{ $dataComment->comment_resep }}</td>
+                        <td>{!! $dataComment->comment_resep !!}</td>
                         <td>
                             <a data-toggle="modal" data-target="#modal-hapus{{ $dataComment->id }}" class="btn btn-danger">
                                 <i class="fas fa-trash-alt"></i>Delete

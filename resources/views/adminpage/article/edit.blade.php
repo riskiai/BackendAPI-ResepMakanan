@@ -66,7 +66,7 @@
                         
                             <div class="form-group">
                               <label for="exampleInputDescription">Description</label>
-                              <textarea name="description" class="form-control my-textarea" id="exampleInputDescription" placeholder="Enter Description" rows="4" cols="50">{{ $data->description }}</textarea>
+                              <textarea name="description" class="ckeditor form-control my-textarea" id="exampleInputDescription" placeholder="Enter Description" rows="4" cols="50">{{ $data->description }}</textarea>
                               @error('description')
                                   <small>{{ $message }}</small>
                               @enderror
@@ -107,5 +107,16 @@
       </section>
 
   </div>
+
+@endsection
+
+@section('scripts')
+
+  <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function() {
+        $('.ckeditor').ckeditor();
+      });
+  </script>
 
 @endsection

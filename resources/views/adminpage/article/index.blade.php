@@ -92,7 +92,7 @@
                                 </button>
                               </div>
                               <div class="modal-body">
-                                <p>Apakah Kamu yakin ingin menghapus data Judul Article <b>{{ $dataArticle->judul; }}</b></p>
+                                <p>Apakah Kamu yakin ingin menghapus data Judul Article <b>{!! $dataArticle->judul; !!}</b></p>
                               </div>
                               <div class="modal-footer justify-content-between">
                                 <form action="{{ route('admin.article.delete', ['id' => $dataArticle->id]) }}" method="POST">

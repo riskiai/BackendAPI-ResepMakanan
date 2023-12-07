@@ -53,10 +53,10 @@
                                         @endif
                                     </td>
                                     <td>{{ $data->judul }}</td>
-                                    <td>{{ $data->description }}</td>
                                     <td>{{ $data->waktu }}</td>
                                     <td>{{ $data->porsi }}</td>
-                                    <td>{{ $data->bahan_langkah }}</td>
+                                    <td>{!! $data->description !!}</td>
+                                    <td>{!! $data->bahan_langkah !!}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -70,7 +70,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="comment">Tambahkan Komentar</label>
-                                <textarea class="form-control" name="comment" id="comment" rows="3" required></textarea>
+                                <textarea class="ckeditor form-control" name="comment" id="comment" rows="3" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Kirim Komentar</button>
                         </form>
@@ -79,14 +79,18 @@
 
                 <!-- Daftar Komentar -->
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="display: flex; flex-direction: column;">
                         <h5 class="card-title"> <strong>Komentar User :</strong> </h5>
                         <br> 
                         @foreach($data->comments as $comment)
-                            <p> <strong style="font-size: 20px"> {{ $comment->user->name }} </strong> :  {{ $comment->comment_resep }}</p>
+                            <div style="display: flex; align-items: center;">
+                                <strong style="font-size: 20px; margin-right: 5px;"> {{ $comment->user->name }} </strong>
+                                <p>{!! $comment->comment_resep !!}</p>
+                            </div>
                         @endforeach
                     </div>
                 </div>
+                
 
                 </div>
             </div>
@@ -94,5 +98,16 @@
     </section>
     <!-- /.content -->
 </div>
+
+@endsection
+
+@section('scripts')
+
+  <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function() {
+        $('.ckeditor').ckeditor();
+      });
+  </script>
 
 @endsection

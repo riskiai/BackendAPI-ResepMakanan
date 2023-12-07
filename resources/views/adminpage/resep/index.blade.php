@@ -97,7 +97,7 @@
                           </td>
                             <td>{{ $dataResep->waktu }}</td>
                             <td>{{ $dataResep->porsi }}</td>
-                            <td>{{ $dataResep->bahan_langkah }}</td>
+                            <td>{!! $dataResep->bahan_langkah !!}</td>
                             <td>
                                 <a href="{{ route('admin.resep.edit', ['id' => $dataResep->id]) }}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
                                 <a href="{{ route('admin.resep.show', ['id' => $dataResep->id]) }}" class="btn btn-success"><i class="fas fa-eye"></i>Show</a>
@@ -114,7 +114,7 @@
                                 </button>
                               </div>
                               <div class="modal-body">
-                                <p>Apakah Kamu yakin ingin menghapus data Judul Article <b>{{ $dataResep->judul; }}</b></p>
+                                <p>Apakah Kamu yakin ingin menghapus data Judul Article <b>{!!$dataResep->judul; !!}</b></p>
                               </div>
                               <div class="modal-footer justify-content-between">
                                 <form action="{{ route('admin.resep.delete', ['id' => $dataResep->id]) }}" method="POST">
