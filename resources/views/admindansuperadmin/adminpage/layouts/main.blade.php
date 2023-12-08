@@ -291,6 +291,15 @@
           <li class="nav-header">DATA APLIKASI </li>
 
           <li class="nav-item">
+            <a href="{{ route('admin.article.index') }}" class="nav-link">
+              <i class="nav-icon  fas fa-apple-alt"></i>
+              <p>
+                Data Fakta Nutrisi
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{ route('admin.resep.index') }}" class="nav-link">
               <i class="nav-icon  fas fa-utensils"></i>
               <p>

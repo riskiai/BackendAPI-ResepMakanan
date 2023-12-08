@@ -14,7 +14,7 @@ use App\Http\Controllers\AdmindanSuperadmin\Superadminpage\ImportexcelController
 use App\Http\Controllers\AdmindanSuperadmin\Auth\LoginController;
 use App\Http\Controllers\AdmindanSuperadmin\Auth\RegisterController;
 
-
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ use App\Http\Controllers\AdmindanSuperadmin\Auth\RegisterController;
 */
 
 Route::get('/', function(){
-    return redirect('/login');
+    return redirect('/home');
 });
 
 /* Login */
@@ -37,6 +37,9 @@ Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('lo
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
 Route::post('/register_proses', [RegisterController::class, 'register_proses'])->name('register-proses');
+
+/* User Page */
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 /* Admin Page Dan Super Admin */
