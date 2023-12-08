@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Adminpage;
+namespace App\Http\Controllers\AdmindanSuperadmin\Adminpage;
 
 
 use App\Http\Controllers\Controller;
-use App\Models\Resep;
-use App\Models\Comment;
+
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
-class ResepController extends Controller
+class ArticleController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Resep::latest();
+        $query = Article::latest();
 
         /* Melakukan Filter Data */
         if ($request->get('search')) {
@@ -24,48 +25,17 @@ class ResepController extends Controller
 
         $data = $query->paginate(5);
     
-        return view('admindansuperadmin.adminpage.resep.index', compact('data','request'));
+        return view('admindansuperadmin.adminpage.article.index', compact('data','request'));
     }
-
-        // ResepController.php
-
-    public function show(Request $request, $id)
-    {
-            $data = Resep::find($id);
-
-            return view('admindansuperadmin.adminpage.resep.show', compact('data'));
-    }
-
-    /* Add Comment Untuk Resep */
-    public function addComment(Request $request, $id)
-    {
-        $request->validate([
-            'comment' => 'required',
-        ]);
-
-        $commentData = [
-            'user_id' => Auth::id(),
-            'resep_id' => $id,
-            'comment_resep' => $request->input('comment'),
-        ];
-
-        Comment::create($commentData);
-
-        return redirect()->back()->with('success', 'Komentar berhasil ditambahkan');
-    }
-
 
     public function create(){
-        return view('admindansuperadmin.adminpage.resep.create');
+        return view('admindansuperadmin.adminpage.article.create');
     }
 
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
             'image' => 'required|mimes:png,jpg,jpeg|max:2048',
             'judul' => 'required', 
-            'waktu' => 'required',
-            'porsi' => 'required',
-            'bahan_langkah' => 'required',
             'description' => 'required',
         ]);
 
@@ -75,40 +45,31 @@ class ResepController extends Controller
         /* Eksekusi Image */
         $image = $request->file('image');
         $filename = date('Y-m-d').$image->getClientOriginalName();
-        $path = 'photo-resep/'.$filename;
+        $path = 'photo-article/'.$filename;
 
         Storage::disk('public')->put($path,file_get_contents($image));
 
         /* Ngirim Data */
         $data['user_id'] = Auth::id();
         $data['judul']      = $request->judul;
-        $data['waktu']      = $request->waktu;
-        $data['porsi']      = $request->porsi;
-        
-        // Decode HTML entities before saving to the database
-        $data['description'] = htmlspecialchars_decode($request->description);
-        $data['bahan_langkah'] = htmlspecialchars_decode($request->bahan_langkah);
-
+        $data['description']       = $request->description;
         $data['image']      = $filename;
 
-        Resep::create($data);
+        Article::create($data);
 
-        return redirect()->route('admin.resep.index');
+        return redirect()->route('admin.article.index');
     }
 
     public function edit(Request $request, $id){
-        $data = Resep::find($id); 
+        $data = Article::find($id); 
         
-        return view('admindansuperadmin.adminpage.resep.edit', compact('data'));
+        return view('admindansuperadmin.adminpage.article.edit', compact('data'));
     }
 
     public function update(Request $request, $id){
         $validator = Validator::make($request->all(),[
             'image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
             'judul' => 'required', 
-            'waktu' => 'required',
-            'porsi' => 'required',
-            'bahan_langkah' => 'required',
             'description' => 'required',
         ]);
     
@@ -118,17 +79,14 @@ class ResepController extends Controller
         }
     
         /* Ngirim Data */
-        $data = Resep::find($id);
+        $data = Article::find($id);
         $data->judul = $request->judul;
-        $data->waktu = $request->waktu;
-        $data->porsi = $request->porsi;
-        $data->bahan_langkah = $request->bahan_langkah;
         $data->description = $request->description;
 
          // Periksa apakah kotak centang "remove_image" dipilih
         if ($request->has('remove_image')) {
             // Hapus gambar lama jika ada
-            Storage::disk('public')->delete('photo-resep/' . $data->image);
+            Storage::disk('public')->delete('photo-article/' . $data->image);
             $data->image = null;
         }
     
@@ -137,7 +95,7 @@ class ResepController extends Controller
             // Simpan gambar yang baru
             $image = $request->file('image');
             $filename = date('Y-m-d') . $image->getClientOriginalName();
-            $path = 'photo-resep/' . $filename;
+            $path = 'photo-article/' . $filename;
             Storage::disk('public')->put($path, file_get_contents($image));
             $data->image = $filename;
         }
@@ -145,18 +103,17 @@ class ResepController extends Controller
 
         $data->save(); // Simpan pengguna yang telah diperbarui
     
-        return redirect()->route('admin.resep.index');
+        return redirect()->route('admin.article.index');
     }
 
     public function delete(Request $request, $id){
-        $data = Resep::find($id);
+        $data = Article::find($id);
 
         if($data){
             $data->delete();
         }
 
-        return redirect()->route('admin.resep.index');
+        return redirect()->route('admin.article.index');
     }
     
-
 }

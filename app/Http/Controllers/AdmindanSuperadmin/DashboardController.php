@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Adminpage;
+namespace App\Http\Controllers\AdmindanSuperadmin;
 
 
 use App\Http\Controllers\Controller;
@@ -22,6 +22,6 @@ class DashboardController extends Controller
 
     public function dashboard(){
         // dd(auth()->user()->getRoleNames());
-        return view('admindansuperadmin.dashboard');
+        return view('AdmindanSuperadmin.dashboard');
     }
 }
