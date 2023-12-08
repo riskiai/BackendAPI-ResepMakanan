@@ -1,7 +1,4 @@
-@extends('superadminpage.layouts.main')
-@section('css')
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
-@endsection
+@extends('admindansuperadmin.superadminpage.layouts.main')
 @section('content')
 
 <div class="content-wrapper">
@@ -15,7 +12,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Table (Client Side User)</li>
+              <li class="breadcrumb-item active">Data</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -30,39 +27,62 @@
             <div class="col-12">
 
                 {{-- Create Data Baru --}}
-                {{-- <a href="{{ route('admin.user.create') }}" class="btn btn-primary mb-3">Tambah Data</a> --}}
+                <a href="{{ route('superadmin.user.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
 
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">Data User</h3>
   
+                  <div class="card-tools">
+
+                    {{-- Filter Data --}}
+                    <form action="{{ route('superadmin.user.index') }}" method="GET">
+                      <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="search" class="form-control float-right" placeholder="Search" value="{{ $request->get('search') }}">
+                        <div class="input-group-append">
+                          <button type="submit" class="btn btn-default">
+                            <i class="fas fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                
+                  </div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
-                  <table class="table table-hover text-nowrap" id="clientside">
+                  <table class="table table-hover text-nowrap">
                     <thead>
                       <tr>
                         <th>No</th>
                         <th>Photo</th>
                         <th>Nama</th>
                         <th>Email</th>
+                        <th>Role</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                     @foreach ($data as $dataUser)
                         <tr>
-                          <td>{{ $loop->iteration }}</td>
+                          <td>{{ $loop->iteration + ($data->perPage() * ($data->currentPage() - 1)) }}</td>
 
                             <td>
                               @if($dataUser->image)
                                    <img src="{{ asset('storage/photo-user/' . $dataUser->image) }}" alt="" width="50">
                               @else
-                                  <img src="{{ asset('assets/image/gambar.jpg') }}" width="50" alt="not image">
+                                   <img src="{{ asset('assets/image/gambar.jpg') }}" width="50" alt="not image">
                               @endif
                             </td>
                             <td>{{ $dataUser->name }}</td>
                             <td>{{ $dataUser->email }}</td>
+
+                            <td>
+                              @foreach($dataUser->roles as $role)
+                                  {{ $role->name }}
+                              @endforeach
+                            </td>
+
                             <td>
                                 <a href="{{ route('superadmin.user.edit', ['id' => $dataUser->id]) }}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
                                 <a data-toggle="modal" data-target="#modal-hapus{{ $dataUser->id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</a>
@@ -101,9 +121,9 @@
                   
                 </div>
 
-                {{-- <div class="mt-3 ml-3">
+                <div class="mt-3 ml-3">
                   {{ $data->onEachSide(2)->links() }}
-                </div> --}}
+              </div>
               
               
                 
@@ -117,15 +137,4 @@
     <!-- /.content -->
   </div>
 
-@endsection
-
-{{-- Pemanggilan Script Data Table --}}
-@section('scripts')
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
-
-    <script>
-      $(document).ready( function () {
-          $('#clientside').DataTable();
-      } );
-    </script>
 @endsection

@@ -34,13 +34,13 @@ class UserController extends Controller
 
         $data = $query->paginate(5);
     
-        return view('superadminpage.user.index', compact('data','request'));
+        return view('admindansuperadmin.superadminpage.user.index', compact('data','request'));
     }
     
 
     public function create(){
         $roles = Role::all();
-        return view('superadminpage.user.create', compact('roles'));
+        return view('admindansuperadmin.superadminpage.user.create', compact('roles'));
     }
 
     public function store(Request $request){
@@ -77,7 +77,7 @@ class UserController extends Controller
     public function edit(Request $request, $id){
         $data = User::find($id); 
         
-        return view('superadminpage.user.edit', compact('data'));
+        return view('admindansuperadmin.superadminpage.user.edit', compact('data'));
     }
 
     public function update(Request $request, $id){

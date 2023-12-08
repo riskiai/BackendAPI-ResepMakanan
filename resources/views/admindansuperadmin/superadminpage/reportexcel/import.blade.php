@@ -1,4 +1,4 @@
-@extends('superadminpage.layouts.main')
+@extends('admindansuperadmin.superadminpage.layouts.main')
 @section('content')
 
     <div class="content-wrapper">

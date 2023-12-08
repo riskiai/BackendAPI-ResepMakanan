@@ -22,6 +22,6 @@ class DashboardController extends Controller
 
     public function dashboard(){
         // dd(auth()->user()->getRoleNames());
-        return view('adminpage.dashboard');
+        return view('admindansuperadmin.dashboard');
     }
 }

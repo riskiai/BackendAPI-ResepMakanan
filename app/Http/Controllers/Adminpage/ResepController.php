@@ -24,7 +24,7 @@ class ResepController extends Controller
 
         $data = $query->paginate(5);
     
-        return view('adminpage.resep.index', compact('data','request'));
+        return view('admindansuperadmin.adminpage.resep.index', compact('data','request'));
     }
 
         // ResepController.php
@@ -33,7 +33,7 @@ class ResepController extends Controller
     {
             $data = Resep::find($id);
 
-            return view('adminpage.resep.show', compact('data'));
+            return view('admindansuperadmin.adminpage.resep.show', compact('data'));
     }
 
     /* Add Comment Untuk Resep */
@@ -56,7 +56,7 @@ class ResepController extends Controller
 
 
     public function create(){
-        return view('adminpage.resep.create');
+        return view('admindansuperadmin.adminpage.resep.create');
     }
 
     public function store(Request $request){
@@ -99,7 +99,7 @@ class ResepController extends Controller
     public function edit(Request $request, $id){
         $data = Resep::find($id); 
         
-        return view('adminpage.resep.edit', compact('data'));
+        return view('admindansuperadmin.adminpage.resep.edit', compact('data'));
     }
 
     public function update(Request $request, $id){

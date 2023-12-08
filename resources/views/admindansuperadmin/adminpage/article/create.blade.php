@@ -1,4 +1,4 @@
-@extends('superadminpage.layouts.main')
+@extends('admindansuperadmin.adminpage.layouts.main')
 @section('content')
 
 <div class="content-wrapper">
@@ -7,13 +7,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">User</h1>
+            <h1 class="m-0">Article</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ route('superadmin.user.index') }}">Back</a></li>
-              <li class="breadcrumb-item active">Edit User</li>
+              <li class="breadcrumb-item"><a href="{{ route('admin.article.index') }}">Back</a></li>
+              <li class="breadcrumb-item active">Tambah Article</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -25,16 +25,15 @@
     <section class="content">
         <div class="container-fluid">
             
-        <form action="{{ route('superadmin.user.update',['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.article.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('PUT')
                 <div class="row">
                     <!-- left column -->
                     <div class="col-md-12 ">
                       <!-- general form elements -->
                       <div class="card card-primary">
                         <div class="card-header">
-                          <h3 class="card-title">Form Edit User</h3>
+                          <h3 class="card-title">Form Tambah Article</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -42,44 +41,29 @@
                           <div class="card-body">
 
                             <div class="form-group custom-margin">
-                              <label for="exampleInputFile">Foto Profil</label>
-                              <input type="file" name="image" class="form-control" id="exampleInputFile">
-                              @if($data->image)
-                                 <img src="{{ asset('storage/photo-user/'.$data->image) }}" alt="" width="100">
-                                 <br>
-                                 <input type="checkbox" name="remove_image" id="remove_image"> Hapus gambar yang ada
-                              @endif
+                              <label for="exampleInputEmail1">Photo Article</label>
+                              <input type="file" name="image" class="form-control " id="exampleInputEmail1" 
                               @error('image')
-                                 <small>{{ $message }}</small>
-                              @enderror
-                           </div>
+                                <small>{{ $message }}</small>
+                            @enderror
+                            </div>
 
-                            <div class="form-group">
-                              <label for="exampleInputEmail1">Email </label>
-                              <input type="email" class="form-control" id="exampleInputEmail1" name="email" value="{{ $data->email }}" placeholder="Enter email">
-                              @error('email')
+                            <div class="form-group ">
+                              <label for="exampleInputEmail1">Judul </label>
+                              <input type="text" class="form-control" id="exampleInputEmail1" name="judul" placeholder="Enter Judul">
+                              @error('judul')
                                   <small>{{ $message }}</small>
                               @enderror
                             </div>
                          
-                        
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Nama</label>
-                                <input type="text" name="name" class="form-control" value="{{ $data->name }}" id="exampleInputEmail1" placeholder="Enter Name">
-                                @error('name')
-                                  <small>{{ $message }}</small>
-                              @enderror
-                              </div>
-                         
-
-                           
-                            <div class="form-group">
-                              <label for="exampleInputPassword1">Password</label>
-                              <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                              @error('password')
-                                  <small>{{ $message }}</small>
-                              @enderror
+                                <label for="exampleInputDescription">Description</label>
+                                <textarea name="description" class="ckeditor form-control my-textarea" id="exampleInputDescription" placeholder="Enter Description" rows="4" cols="50">{{ old('description') }}</textarea>
+                                @error('description')
+                                    <small>{{ $message }}</small>
+                                @enderror
                             </div>
+                          
 
                             <div class="form-group">
                               <button type="submit" class="btn btn-primary">Submit</button>
@@ -115,5 +99,17 @@
       </section>
 
   </div>
+
+@endsection
+
+@section('scripts')
+
+  {{-- Ckeditor --}}
+  <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function() {
+        $('.ckeditor').ckeditor();
+      });
+  </script>
 
 @endsection
