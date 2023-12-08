@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Yomasak</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg " style="background-color:#FFF;">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="img/nasi-goreng.png/YOMASAK.png" width="200px" height="30px" alt="Yomasak">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#bahan">Bahan Masakan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#resep">Resep</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#artikel">Artikel</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav profile-menu">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="profile-pic">
+                                    <img src="img/profile.jpeg" alt="Profile Picture">
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-id-badge"></i> lihat
+                                        Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-file-lines"></i> lihat Resep
+                                        ku</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-file-circle-plus"></i>
+                                        Tambah Resep</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-fw"></i> Log
+                                        Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="tulis-resep">
+            <div class="container">
+                <h1 class="mb-5 text-center pt-5">AYO BAGIKAN RESEP TERBAIKMU</h1>
+                <div class="row">
+                    <form action="">
+                        <div class="desc-resep row">
+                            <div class="col-12 col-md-4 pt-4">
+                                <div class="upload-img text-center mx-auto">
+                                    <i class="fa-solid fa-camera"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="inputEmail4" class="form-label">Porsi :</label>
+                                        <input type="email" class="form-control" id="inputEmail4">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputPassword4" class="form-label">Waktu memasak :</label>
+                                        <input type="password" class="form-control" id="inputPassword4">
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <input type="text" class=" form-control" id="judul"
+                                            placeholder="Judul Resep Makanan">
+                                    </div>
+                                    <div class="mt-3">
+                                        <textarea class="form-control"
+                                            placeholder="Tuliskan Deskripsi singkat"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bahan-resep row mt-5">
+                            <h3>Bahan - Bahan</h3>
+                            <div class="col-md-12 ">
+                                <div class="input-bahan">
+                                    <div class="d-flex align-items-center">
+                                    <i class="fa-solid fa-bars pe-2"></i>
+                                    <input type="text" class="form-control" id="judul"
+                                        placeholder="Bahan">
+                                    </div>
+                                </div>
+                                    <div class="ps-4 pt-3">
+                                    <a href="#" class="add-bahan btn-primary d-flex align-items-center text-decoration-none text-center"><i class="fa-solid fa-plus"></i> Bahan</a>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="langkah-resep row mt-5">
+                            <h3>Langkah - Langkah</h3>
+                            <div class="col-md-12 ">
+                                <div class="input-langkah">
+                                    <div class="d-flex align-items-center">
+                                    <i class="fa-solid fa-bars pe-2"></i>
+                                    <input type="text" class=" form-control" id="judul"
+                                        placeholder="Langkah 1">
+                                    </div>
+                                </div>
+                                <div class="ps-4 pt-3">
+                                <a href="#" class="add-langkah btn-primary d-flex align-items-center text-decoration-none text-center"><i class="fa-solid fa-plus"></i> Langkah</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-5 ">
+                            <a href="#" class="btn-primary text-decoration-none ms-auto text-center d-block"> Kirim </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer pt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-start  col-12">
+                    <h5>Makan apa ya Hari ini?</h5>
+                    <p>Menyediakan Berbagai macam resep masakan</p>
+                </div>
+                <div class="col-md-2 text-start offset-0  offset-md-1 col-12">
+                    <ul class="nav-footer ps-0 list-unstyled text-black">
+                        <li>
+                            <a class="nav-footer-link text-black text-decoration-none" href="#">Beranda</a>
+                        </li>
+                        <li>
+                            <a class="nav-footer-link text-black text-decoration-none" href="#">Bahan Masakan</a>
+                        </li>
+                        <li>
+                            <a class="nav-footer-link text-black text-decoration-none" href="#">Resep</a>
+                        </li>
+                        <li>
+                            <a class="nav-footer-link text-black text-decoration-none" href="#">Artikel</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-2 text-start offset-md-2 col-12">
+                    <h5>Get Connected</h5>
+                    <ul class="list-unstyled  ">
+                        <li>Indramayu</li>
+                        <li>Indonesia</li>
+                        <li>mapaya@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6  ms-auto">
+                    <p>Copyright 2023 Yomasak</p>
+                </div>
+                <div class="col-md-3 offset-lg-3 d-flex gap-3 me-auto">
+                    <a href="#"><i class="fa-brands fa-facebook" style="color: black;"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram" style="color: black;"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter" style="color: black;"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
