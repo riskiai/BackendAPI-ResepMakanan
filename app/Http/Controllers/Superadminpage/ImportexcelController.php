@@ -19,12 +19,12 @@ class ImportexcelController extends Controller
             return User::get();
         });
 
-        return view('superadminpage.reportexcel.cache', compact('data'));
+        return view('admindansuperadmin.superadminpage.reportexcel.cache', compact('data'));
 
     }
 
     public function import(Request $request){
-        return view('superadminpage.reportexcel.import');
+        return view('admindansuperadmin.superadminpage.reportexcel.import');
     }
 
     public function import_proses(Request $request){

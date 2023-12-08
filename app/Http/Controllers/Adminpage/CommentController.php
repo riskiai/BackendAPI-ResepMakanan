@@ -21,7 +21,7 @@ class CommentController extends Controller
     
         $data = $query->paginate(5);
     
-        return view('adminpage.comment.index', compact('data','request'));
+        return view('admindansuperadmin.adminpage.comment.index', compact('data','request'));
     }
 
     public function delete(Request $request, $id){

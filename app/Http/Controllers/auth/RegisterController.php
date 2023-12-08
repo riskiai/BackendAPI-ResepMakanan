@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class RegisterController extends Controller
 {
     public function register(){
-        return view('auth.register');
+        return view('admindansuperadmin.auth.register');
     }
 
     public function register_proses(Request $request){

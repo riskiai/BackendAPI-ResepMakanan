@@ -25,11 +25,11 @@ class ArticleController extends Controller
 
         $data = $query->paginate(5);
     
-        return view('adminpage.article.index', compact('data','request'));
+        return view('admindansuperadmin.adminpage.article.index', compact('data','request'));
     }
 
     public function create(){
-        return view('adminpage.article.create');
+        return view('admindansuperadmin.adminpage.article.create');
     }
 
     public function store(Request $request){
@@ -63,7 +63,7 @@ class ArticleController extends Controller
     public function edit(Request $request, $id){
         $data = Article::find($id); 
         
-        return view('adminpage.article.edit', compact('data'));
+        return view('admindansuperadmin.adminpage.article.edit', compact('data'));
     }
 
     public function update(Request $request, $id){

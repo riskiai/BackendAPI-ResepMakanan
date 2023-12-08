@@ -24,7 +24,7 @@ class DataTableController extends Controller
 
         $data = $data->get();
     
-        return view('superadminpage.datatable.clientside', compact('data','request'));
+        return view('admindansuperadmin.superadminpage.datatable.clientside', compact('data','request'));
     }
 
     public function serverside(Request $request)
@@ -58,7 +58,7 @@ class DataTableController extends Controller
             ->make(true);
         }
     
-        return view('superadminpage.datatable.serverside', compact('request'));
+        return view('admindansuperadmin.superadminpage.datatable.serverside', compact('request'));
     }
  
 }
