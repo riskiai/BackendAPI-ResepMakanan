@@ -2,17 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Adminpage\ResepController;
-use App\Http\Controllers\Adminpage\ArticleController;
-use App\Http\Controllers\Adminpage\CommentController;
-use App\Http\Controllers\Adminpage\DashboardController;
+use App\Http\Controllers\AdmindanSuperadmin\Adminpage\ResepController;
+use App\Http\Controllers\AdmindanSuperadmin\Adminpage\ArticleController;
+use App\Http\Controllers\AdmindanSuperadmin\Adminpage\CommentController;
+use App\Http\Controllers\AdmindanSuperadmin\DashboardController;
 
-use App\Http\Controllers\Superadminpage\UserController;
-use App\Http\Controllers\Superadminpage\DataTableController;
-use App\Http\Controllers\Superadminpage\ImportexcelController;
+use App\Http\Controllers\AdmindanSuperadmin\Superadminpage\UserController;
+use App\Http\Controllers\AdmindanSuperadmin\Superadminpage\DataTableController;
+use App\Http\Controllers\AdmindanSuperadmin\Superadminpage\ImportexcelController;
 
-use App\Http\Controllers\auth\LoginController;
-use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\AdmindanSuperadmin\Auth\LoginController;
+use App\Http\Controllers\AdmindanSuperadmin\Auth\RegisterController;
 
 
 
