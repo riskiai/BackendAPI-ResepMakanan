@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Adminpage;
+namespace App\Http\Controllers\Superadminpage;
 
 
 use App\Http\Controllers\Controller;
@@ -19,12 +19,12 @@ class ImportexcelController extends Controller
             return User::get();
         });
 
-        return view('adminpage.reportexcel.cache', compact('data'));
+        return view('superadminpage.reportexcel.cache', compact('data'));
 
     }
 
     public function import(Request $request){
-        return view('adminpage.reportexcel.import');
+        return view('superadminpage.reportexcel.import');
     }
 
     public function import_proses(Request $request){

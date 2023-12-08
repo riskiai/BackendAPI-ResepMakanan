@@ -1,4 +1,4 @@
-@extends('adminpage.layouts.main')
+@extends('superadminpage.layouts.main')
 @section('content')
 
     <div class="content-wrapper">
@@ -20,7 +20,7 @@
 
         <section class="content">
             <div class="container-fluid">
-                <form action="{{ route('admin.import-proses') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('superadmin.import-proses') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-12">

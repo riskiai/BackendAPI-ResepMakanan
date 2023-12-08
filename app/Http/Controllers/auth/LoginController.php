@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Adminpage\auth;
+namespace App\Http\Controllers\auth;
 
 
 use App\Http\Controllers\Controller;
@@ -35,7 +35,7 @@ class LoginController extends Controller
         ];
 
         if(Auth::attempt($data)){
-            return redirect()->route('admin.dashboard')->with('success', 'Kamu Berhasil Login');
+            return redirect()->route('dashboard')->with('success', 'Kamu Berhasil Login');
         }else{
             return redirect()->route('login')->with('failed', 'Email Atau Password Salah');
         }

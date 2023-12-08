@@ -5,10 +5,10 @@
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="{{ route('register') }}" class="h1"><b>Admin</b>Page</a>
+        <a href="{{ route('register') }}" class="h1"><b>YOMASAK</b></a>
       </div>
       <div class="card-body">
-        <p class="login-box-msg">Halaman Register</p>
+        <p class="login-box-msg"> <strong>Halaman Register</strong> </p>
   
         <form action="{{ route('register-proses') }}" method="post">
             @csrf

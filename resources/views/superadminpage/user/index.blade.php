@@ -1,4 +1,4 @@
-@extends('adminpage.layouts.main')
+@extends('superadminpage.layouts.main')
 @section('content')
 
 <div class="content-wrapper">
@@ -27,7 +27,7 @@
             <div class="col-12">
 
                 {{-- Create Data Baru --}}
-                <a href="{{ route('admin.user.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
+                <a href="{{ route('superadmin.user.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
 
               <div class="card">
                 <div class="card-header">
@@ -36,7 +36,7 @@
                   <div class="card-tools">
 
                     {{-- Filter Data --}}
-                    <form action="{{ route('admin.user.index') }}" method="GET">
+                    <form action="{{ route('superadmin.user.index') }}" method="GET">
                       <div class="input-group input-group-sm" style="width: 150px;">
                         <input type="text" name="search" class="form-control float-right" placeholder="Search" value="{{ $request->get('search') }}">
                         <div class="input-group-append">
@@ -84,7 +84,7 @@
                             </td>
 
                             <td>
-                                <a href="{{ route('admin.user.edit', ['id' => $dataUser->id]) }}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
+                                <a href="{{ route('superadmin.user.edit', ['id' => $dataUser->id]) }}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
                                 <a data-toggle="modal" data-target="#modal-hapus{{ $dataUser->id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</a>
                             </td>
                         </tr>
@@ -101,7 +101,7 @@
                                 <p>Apakah Kamu yakin ingin menghapus data user <b>{{ $dataUser->name }}</b></p>
                               </div>
                               <div class="modal-footer justify-content-between">
-                                <form action="{{ route('admin.user.delete', ['id' => $dataUser->id]) }}" method="POST">
+                                <form action="{{ route('superadmin.user.delete', ['id' => $dataUser->id]) }}" method="POST">
                                   @csrf
                                   @method('DELETE')
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

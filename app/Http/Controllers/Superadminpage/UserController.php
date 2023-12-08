@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Adminpage;
+namespace App\Http\Controllers\Superadminpage;
 
 
 use App\Models\User;
@@ -34,13 +34,13 @@ class UserController extends Controller
 
         $data = $query->paginate(5);
     
-        return view('adminpage.user.index', compact('data','request'));
+        return view('superadminpage.user.index', compact('data','request'));
     }
     
 
     public function create(){
         $roles = Role::all();
-        return view('adminpage.user.create', compact('roles'));
+        return view('superadminpage.user.create', compact('roles'));
     }
 
     public function store(Request $request){
@@ -71,13 +71,13 @@ class UserController extends Controller
         $user = User::create($data);
         $user->assignRole($request->role);
 
-        return redirect()->route('admin.user.index');
+        return redirect()->route('superadmin.user.index');
     }
 
     public function edit(Request $request, $id){
         $data = User::find($id); 
         
-        return view('adminpage.user.edit', compact('data'));
+        return view('superadminpage.user.edit', compact('data'));
     }
 
     public function update(Request $request, $id){
@@ -122,7 +122,7 @@ class UserController extends Controller
 
         $data->save(); // Simpan pengguna yang telah diperbarui
     
-        return redirect()->route('admin.user.index');
+        return redirect()->route('superadmin.user.index');
     }
     
 
@@ -133,7 +133,7 @@ class UserController extends Controller
             $data->delete();
         }
 
-        return redirect()->route('admin.user.index');
+        return redirect()->route('superadmin.user.index');
     }
 }
 

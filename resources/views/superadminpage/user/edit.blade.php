@@ -1,4 +1,4 @@
-@extends('adminpage.layouts.main')
+@extends('superadminpage.layouts.main')
 @section('content')
 
 <div class="content-wrapper">
@@ -12,7 +12,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ route('admin.user.index') }}">Back</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('superadmin.user.index') }}">Back</a></li>
               <li class="breadcrumb-item active">Edit User</li>
             </ol>
           </div><!-- /.col -->
@@ -25,7 +25,7 @@
     <section class="content">
         <div class="container-fluid">
             
-        <form action="{{ route('admin.user.update',['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('superadmin.user.update',['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
                 <div class="row">
@@ -53,9 +53,6 @@
                                  <small>{{ $message }}</small>
                               @enderror
                            </div>
-                           
-                           
-                          
 
                             <div class="form-group">
                               <label for="exampleInputEmail1">Email </label>

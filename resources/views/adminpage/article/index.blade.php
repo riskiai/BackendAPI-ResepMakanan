@@ -76,7 +76,7 @@
                               @endif
                             </td>
                             <td>{{ $dataArticle->judul }}</td>
-                            <td>{{ $dataArticle->description }}</td>
+                            <td>{!! $dataArticle->description !!}</td>
                             <td>
                                 <a href="{{ route('admin.article.edit', ['id' => $dataArticle->id]) }}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
                                 <a data-toggle="modal" data-target="#modal-hapus{{ $dataArticle->id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</a>

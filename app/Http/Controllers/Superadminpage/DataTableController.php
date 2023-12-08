@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Adminpage;
+namespace App\Http\Controllers\Superadminpage;
 
 
 use App\Http\Controllers\Controller;
@@ -24,7 +24,7 @@ class DataTableController extends Controller
 
         $data = $data->get();
     
-        return view('adminpage.datatable.clientside', compact('data','request'));
+        return view('superadminpage.datatable.clientside', compact('data','request'));
     }
 
     public function serverside(Request $request)
@@ -50,7 +50,7 @@ class DataTableController extends Controller
                 return $data->email;
             })
             ->addColumn('action', function($data){
-                return '  <a href="'.route('admin.user.edit', ['id' => $data->id]).'" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
+                return '  <a href="'.route('superadmin.user.edit', ['id' => $data->id]).'" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
                 <a data-toggle="modal" data-target="#modal-hapus'.$data->id.'" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</a>';
             })
             /* Render Untuk Image dan action */
@@ -58,7 +58,7 @@ class DataTableController extends Controller
             ->make(true);
         }
     
-        return view('adminpage.datatable.serverside', compact('request'));
+        return view('superadminpage.datatable.serverside', compact('request'));
     }
  
 }
