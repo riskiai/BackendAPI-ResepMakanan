@@ -3,11 +3,11 @@
 
 <main>
     <section id="detail-resep">
-        <div class="container pt-5">
-            <h2>ini resep nasi goreng asli khas mamang nizar</h2>
+        <div class="container pt-5 mt-5">
+            <h2>{{$resep->judul}}</h2>
             <div class="row pt-3">
                 <div class="col-lg-7">
-                    <img src="img/nasi-goreng.png" class="w-100" alt="">
+                    <img src="{{asset('assets/image/nasi-goreng.png')}}" class="w-100" alt="">
                 </div>
                 <div class="col-lg-5 pt-3 d-flex flex-column justify-content-between">
                     <div>
@@ -16,23 +16,26 @@
                         <p class="khas">Indramayu</p>
                     </div>
                     <div class="d-flex gap-4 ps-1 ">
-                        <p><i class="fa-solid fa-utensils"></i> 4 porsi </p>
-                        <p><i class="fa-solid fa-clock"></i> 30 menit</p>
+                        <p><i class="fa-solid fa-utensils"></i> {{$resep->porsi}} </p>
+                        <p><i class="fa-solid fa-clock"></i> {{$resep->waktu}}</p>
                     </div>
-                    <p>
-                        ini adalah resep khas mamang nizar nasi goreng ini beda dari nasi goreng yang biasa kita buat nasi goreng ini hanya menggunakan bahan biasa .
-                    </p>
+                    <p>{!! $resep->description !!}</p>
                 </div>
                     <div class="img-author d-flex  ">
-                        <img src="img/profile.jpeg" alt="">
+                        <img src="{{asset('assets/image/profile.jpeg')}}" alt="">
                         <div class="ps-2 d-flex flex-column">
-                            <p class="m-0">Nizar Zulmi</p>
-                            <p class="time p-0">Kamis, 23 Nov 2023 10:48</p>
+                            <p class="m-0">{{$resep->user->name}}</p>
+                            <p class="time p-0">{{$resep->created_at}}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
+                <div class="col-12">
+                    {!!$resep->bahan_langkah!!}
+                </div>
+            </div>
+            {{-- <div class="row">
                 <div class="col-12">
                     <h3>Bahan - Bahan</h3>
                     <ol class="bahan-bahan">
@@ -98,7 +101,7 @@
                     </li>
                 </ul>
 
-            </div>
+            </div> --}}
             <div class="row">
                 <div class="card-komentar mt-5">
                     <div>
@@ -106,29 +109,21 @@
                         <hr>
                     </div>
                     <div>
+                        @foreach ($resep->comments as $item )
                         <div class="d-flex flex-row p-3 mb-3"> <img src="https://asapcairtenajar.com/frontend/assets/image/user.png"
-                                style="width: 40px;height:40px" class="rounded-circle mr-3 me-3">
-                            <div class="w-100">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex flex-row align-items-center"><span class="mr-2 comment-name"><B>Imam</B></span>
-                                    </div>
+                            style="width: 40px;height:40px" class="rounded-circle mr-3 me-3">
+                        <div class="w-100">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex flex-row align-items-center"><span class="mr-2 comment-name"><B>{{$item->user->name}}</B></span>
                                 </div>
-                                <small>2023-06-24 06:19:18</small>
-                                <p class="text-justify comment-text mb-0 ">Enak Mamang Nizar resepnya</p>
                             </div>
+                            <small>{{$item->created_at}}</small>
+                            <p class="text-justify comment-text mb-0 ">{{strip_tags($item->comment_resep)}}</p>
                         </div>
-                        <hr>
-                        <div class="d-flex flex-row p-3"> <img src="https://asapcairtenajar.com/frontend/assets/image/user.png"
-                                style="width: 40px;height:40px" class="rounded-circle mr-3 me-3">
-                            <div class="w-100">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex flex-row align-items-center"><span class="mr-2 comment-name"><B>riski</B></span>
-                                    </div>
-                                </div>
-                                <small>2023-08-01 07:58:30</small>
-                                <p class="text-justify comment-text mb-0 ">bagus</p>
-                            </div>
-                        </div>
+                    </div>
+                    <hr>
+                        @endforeach
+
                     </div>
                     <form method="post" action="" class ="row-cols-lg-auto g-3" >
                         <div class="mb-3 mt-3 col-lg-4 ">

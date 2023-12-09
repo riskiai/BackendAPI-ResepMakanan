@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-12 order-2 order-lg-0 position-relative ">
-                    <img src="{{url('frontend/img/nasi-goreng.png')}}" alt="" class="w-100">
+                    <img src="{{asset('assets/image/nasi-goreng.png')}}" alt="" class="w-100">
                     <p class="p-0">1 jam yang lalu</p>
                     <h3>ini resep nasi goreng asli khas  mamang nizar</h3>
                     <a href="#" class="stretched-link p-0 text-black text-decoration-none">ini adalah resep khas mamang nizar nasi goreng ini beda dari nasi goreng yang biasa kita buat nasi goreng ini hanya menggunakan bahan...</a>

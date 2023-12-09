@@ -24,7 +24,7 @@ class ArticleController extends Controller
         }
 
         $data = $query->paginate(5);
-    
+
         return view('admindansuperadmin.adminpage.article.index', compact('data','request'));
     }
 
@@ -35,7 +35,7 @@ class ArticleController extends Controller
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
             'image' => 'required|mimes:png,jpg,jpeg|max:2048',
-            'judul' => 'required', 
+            'judul' => 'required',
             'description' => 'required',
         ]);
 
@@ -61,23 +61,23 @@ class ArticleController extends Controller
     }
 
     public function edit(Request $request, $id){
-        $data = Article::find($id); 
-        
+        $data = Article::find($id);
+
         return view('admindansuperadmin.adminpage.article.edit', compact('data'));
     }
 
     public function update(Request $request, $id){
         $validator = Validator::make($request->all(),[
             'image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
-            'judul' => 'required', 
+            'judul' => 'required',
             'description' => 'required',
         ]);
-    
+
         /* Validasi Error Required */
         if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator);
         }
-    
+
         /* Ngirim Data */
         $data = Article::find($id);
         $data->judul = $request->judul;
@@ -89,7 +89,7 @@ class ArticleController extends Controller
             Storage::disk('public')->delete('photo-article/' . $data->image);
             $data->image = null;
         }
-    
+
        // Tangani kasus ketika gambar baru diunggah
         if ($request->hasFile('image')) {
             // Simpan gambar yang baru
@@ -99,10 +99,10 @@ class ArticleController extends Controller
             Storage::disk('public')->put($path, file_get_contents($image));
             $data->image = $filename;
         }
-            
+
 
         $data->save(); // Simpan pengguna yang telah diperbarui
-    
+
         return redirect()->route('admin.article.index');
     }
 
@@ -115,5 +115,5 @@ class ArticleController extends Controller
 
         return redirect()->route('admin.article.index');
     }
-    
+
 }

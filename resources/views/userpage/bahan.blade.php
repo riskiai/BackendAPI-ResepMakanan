@@ -4,7 +4,7 @@
 <main>
     <section id="section-bahan">
         <div class="container">
-            <form action="#" class="pb-5 pt-5">
+            <form action="#" class="pb-5 pt-5 mt-5">
                 <div class="input pt-2">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text"  placeholder="cari resep" name="search">
@@ -12,7 +12,7 @@
             </form>
             <div class="row">
                 <div class="col-lg-6 col-12 order-1 order-lg-0 pt-5">
-                    <img class="w-100" src="img/bahan.jpg" alt="">
+                    <img class="w-100" src="{{asset('assets/image/bahan.jpg')}}" alt="">
                 </div>
                 <div class="col-lg-4 offset-lg-2 col-12  text-center">
                     <p class="bahan-desc"> Mau masak apa hari ini ?

@@ -15,7 +15,10 @@ use App\Http\Controllers\AdmindanSuperadmin\Superadminpage\ImportexcelController
 use App\Http\Controllers\AdmindanSuperadmin\Auth\LoginController;
 use App\Http\Controllers\AdmindanSuperadmin\Auth\RegisterController;
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\FrontBahanController;
+use App\Http\Controllers\Frontend\FrontArtikelController;
+use App\Http\Controllers\Frontend\FrontResepController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +44,13 @@ Route::post('/register_proses', [RegisterController::class, 'register_proses'])-
 
 /* User Page */
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/bahan', [FrontBahanController::class,'index'])->name('bahan');
+Route::get('/resep', [FrontResepController::class,'index'])->name('resep');
+Route::get('/detail-resep/{id}', [FrontResepController::class,'detail'])->name('detail-resep');
+Route::get('/artikel', [FrontArtikelController::class,'index'])->name('artikel');
+Route::get('/detail-artikel/{id}', [FrontArtikelController::class,'detail'])->name('detail-artikel');
+
+
 
 
 /* Admin Page Dan Super Admin */
@@ -68,11 +78,11 @@ Route::group(['prefix' => 'superadmin', 'middleware' => ['auth'], 'as' => 'super
         Route::post('/import-proses', [ImportexcelController::class, 'import_proses'])->name('import-proses');
     });
 
-}); 
+});
 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function(){
-   
+
     /* CRUD ARTICLE */
     Route::get('/article', [ArticleController::class, 'index'])->name('article.index');
     Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');

@@ -21,7 +21,7 @@ class NutrsiController extends Controller
         }
 
         $data = $query->paginate(5);
-    
+
         return view('admindansuperadmin.adminpage.nutrisi.index', compact('data','request'));
     }
 
@@ -32,7 +32,7 @@ class NutrsiController extends Controller
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
             'image' => 'required|mimes:png,jpg,jpeg|max:2048',
-            'judul' => 'required', 
+            'judul' => 'required',
             'energi' => 'required',
             'protein' => 'required',
             'lemak' => 'required',
@@ -57,33 +57,33 @@ class NutrsiController extends Controller
         $data['protein']      = $request->protein;
         $data['lemak']      = $request->lemak;
         $data['karbohidrat'] = $request->karbohidrat;
-        
+
         Nutrisi::create($data);
 
         return redirect()->route('admin.nutrisi.index');
     }
 
     public function edit(Request $request, $id){
-        $data = Nutrisi::find($id); 
-        
+        $data = Nutrisi::find($id);
+
         return view('admindansuperadmin.adminpage.nutrisi.edit', compact('data'));
     }
 
     public function update(Request $request, $id){
         $validator = Validator::make($request->all(),[
             'image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
-            'judul' => 'required', 
+            'judul' => 'required',
             'energi' => 'required',
             'protein' => 'required',
             'lemak' => 'required',
             'karbohidrat' => 'required',
         ]);
-    
+
         /* Validasi Error Required */
         if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator);
         }
-    
+
         /* Ngirim Data */
         $data = Nutrisi::find($id);
         $data->judul = $request->judul;
@@ -98,7 +98,7 @@ class NutrsiController extends Controller
             Storage::disk('public')->delete('photo-nutrisi/' . $data->image);
             $data->image = null;
         }
-    
+
        // Tangani kasus ketika gambar baru diunggah
         if ($request->hasFile('image')) {
             // Simpan gambar yang baru
@@ -108,10 +108,10 @@ class NutrsiController extends Controller
             Storage::disk('public')->put($path, file_get_contents($image));
             $data->image = $filename;
         }
-            
+
 
         $data->save(); // Simpan pengguna yang telah diperbarui
-    
+
         return redirect()->route('admin.nutrisi.index');
     }
 

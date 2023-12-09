@@ -14,19 +14,19 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Bahan Masakan</a>
+                        <a class="nav-link" href="{{route('home')}}#bahan">Bahan Masakan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Resep</a>
+                        <a class="nav-link" href="{{route('home')}}#rekomendasi">Resep</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Artikel</a>
+                        <a class="nav-link" href="{{route('home')}}#artikel">Artikel</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn-login" href="">login</a>
+                        <a class="nav-link btn-login" href="{{route('login')}}">login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Register</a>
+                        <a class="nav-link" href="{{route('register')}}">Register</a>
                     </li>
                 </ul>
             </div>
