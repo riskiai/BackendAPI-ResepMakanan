@@ -84,8 +84,8 @@
                         <br> 
                         @foreach($data->comments as $comment)
                             <div style="display: flex; align-items: center;">
-                                <strong style="font-size: 20px; margin-right: 5px;"> {{ $comment->user->name }} </strong>
-                                <p>{!! $comment->comment_resep !!}</p>
+                                <strong style="font-size: 20px;"> {{ $comment->user->name }} : </strong> <strong>{!! html_entity_decode($comment->comment_resep) !!}</strong>
+                              
                             </div>
                         @endforeach
                     </div>

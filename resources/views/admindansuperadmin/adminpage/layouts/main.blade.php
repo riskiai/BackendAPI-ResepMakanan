@@ -182,8 +182,21 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="{{ asset('lte/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Admin Page</span>
+      {{-- <img src="{{ asset('lte/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
+      <span class="brand-text font-weight" style="margin-left: 5px">
+        @if(Auth::check())
+            @if(Auth::user()->hasRole('superadmin'))
+                Superadmin Yomasak
+            @elseif(Auth::user()->hasRole('admin'))
+                Admin Yomasak
+            @else
+                Default Text atau Logika Lainnya
+            @endif
+        @else
+            Default Text atau Logika Lainnya
+        @endif
+    </span>
+    
     </a>
 
     <!-- Sidebar -->
@@ -291,7 +304,7 @@
           <li class="nav-header">DATA APLIKASI </li>
 
           <li class="nav-item">
-            <a href="{{ route('admin.article.index') }}" class="nav-link">
+            <a href="{{ route('admin.nutrisi.index') }}" class="nav-link">
               <i class="nav-icon  fas fa-apple-alt"></i>
               <p>
                 Data Fakta Nutrisi

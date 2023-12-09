@@ -56,6 +56,12 @@ class User extends Authenticatable
          return $this->hasMany(Resep::class);
      }
 
+     // Nutrisi 
+     public function nutrisi()
+     {
+         return $this->hasMany(Nutrisi::class);
+     }
+
     // User.php (model)
     public function comments()
     {

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdmindanSuperadmin\Adminpage\ResepController;
 use App\Http\Controllers\AdmindanSuperadmin\Adminpage\ArticleController;
 use App\Http\Controllers\AdmindanSuperadmin\Adminpage\CommentController;
+use App\Http\Controllers\AdmindanSuperadmin\Adminpage\NutrsiController;
 use App\Http\Controllers\AdmindanSuperadmin\DashboardController;
 
 use App\Http\Controllers\AdmindanSuperadmin\Superadminpage\UserController;
@@ -80,14 +81,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::put('/article/update/{id}', [ArticleController::class, 'update'])->name('article.update');
     Route::delete('/article/delete/{id}', [ArticleController::class, 'delete'])->name('article.delete');
 
-    /* CRUD RESEP */
-    Route::get('/resep', [ResepController::class, 'index'])->name('resep.index');
-    
+    /* CRUD Nutrisi */
+    Route::get('/nutrisi', [NutrsiController::class, 'index'])->name('nutrisi.index');
+    Route::get('/nutrisi/create', [NutrsiController::class, 'create'])->name('nutrisi.create');
+    Route::post('/nutrisi/store', [NutrsiController::class, 'store'])->name('nutrisi.store');
+    Route::get('/nutrisi/edit/{id}', [NutrsiController::class, 'edit'])->name('nutrisi.edit');
+    Route::put('/nutrisi/update/{id}', [NutrsiController::class, 'update'])->name('nutrisi.update');
+    Route::delete('/nutrisi/delete/{id}', [NutrsiController::class, 'delete'])->name('nutrisi.delete');
+
+
     /* Comment Relasi dengan resep */
     Route::get('/resep/show/{id}', [ResepController::class, 'show'])->name('resep.show');
     Route::post('/resep/add-comment/{id}', [ResepController::class, 'addComment'])->name('resep.addComment');
 
     /* CRUD RESEP */
+    Route::get('/resep', [ResepController::class, 'index'])->name('resep.index');
     Route::get('/resep/create', [ResepController::class, 'create'])->name('resep.create');
     Route::post('/resep/store', [ResepController::class, 'store'])->name('resep.store');
     Route::get('/resep/edit/{id}', [ResepController::class, 'edit'])->name('resep.edit');
