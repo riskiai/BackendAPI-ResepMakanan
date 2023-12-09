@@ -15,6 +15,7 @@ use App\Http\Controllers\AdmindanSuperadmin\Auth\LoginController;
 use App\Http\Controllers\AdmindanSuperadmin\Auth\RegisterController;
 
 
+use App\Http\Controllers\FrontEndController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,11 +65,11 @@ Route::group(['prefix' => 'superadmin', 'middleware' => ['auth'], 'as' => 'super
         Route::post('/import-proses', [ImportexcelController::class, 'import_proses'])->name('import-proses');
     });
 
-}); 
+});
 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function(){
-   
+
     /* CRUD ARTICLE */
     Route::get('/article', [ArticleController::class, 'index'])->name('article.index');
     Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
@@ -79,7 +80,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
 
     /* CRUD RESEP */
     Route::get('/resep', [ResepController::class, 'index'])->name('resep.index');
-    
+
     /* Comment Relasi dengan resep */
     Route::get('/resep/show/{id}', [ResepController::class, 'show'])->name('resep.show');
     Route::post('/resep/add-comment/{id}', [ResepController::class, 'addComment'])->name('resep.addComment');
