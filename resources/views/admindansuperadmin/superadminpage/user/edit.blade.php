@@ -1,4 +1,4 @@
-@extends('admindansuperadmin.superadminpage.layouts.main')
+@extends('admindansuperadmin.layouts.main')
 @section('content')
 
 <div class="content-wrapper">
@@ -71,6 +71,20 @@
                               @enderror
                               </div>
                          
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Peran</label>
+                                <select name="role" class="form-control">
+                                    @foreach($roles as $role)
+                                        <option value="{{ $role->name }}" {{ $data->hasRole($role->name) ? 'selected' : '' }}>
+                                            {{ $role->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('role')
+                                    <small>{{ $message }}</small>
+                                @enderror
+                            </div>
+                            
 
                            
                             <div class="form-group">

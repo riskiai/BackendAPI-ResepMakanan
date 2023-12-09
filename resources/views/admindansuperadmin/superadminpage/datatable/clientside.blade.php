@@ -1,4 +1,4 @@
-@extends('admindansuperadmin.superadminpage.layouts.main')
+@extends('admindansuperadmin.layouts.main')
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 @endsection

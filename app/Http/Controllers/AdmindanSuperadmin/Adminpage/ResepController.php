@@ -24,6 +24,8 @@ class ResepController extends Controller
 
         $data = $query->paginate(5);
 
+        $data = $query->paginate(3);
+
         return view('admindansuperadmin.adminpage.resep.index', compact('data','request'));
     }
 

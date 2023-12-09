@@ -70,6 +70,9 @@ Route::group(['prefix' => 'superadmin', 'middleware' => ['auth'], 'as' => 'super
     /* DATA TABLE */
     Route::get('/clientside', [DataTableController::class, 'clientside'])->name('datatable.clientside');
     Route::get('/serverside', [DataTableController::class, 'serverside'])->name('datatable.serverside');
+    Route::delete('/datatable/serverside/delete/{id}', [DataTableController::class, 'delete'])->name('datatables.serverside.delete');
+
+
 
       /* REPORT EXCEL */
     Route::group(['prefix' => 'excel'], function(){

@@ -1,4 +1,4 @@
-@extends('admindansuperadmin.adminpage.layouts.main')
+@extends('admindansuperadmin.layouts.main')
 @section('content')
 
 <div class="content-wrapper">
@@ -73,7 +73,7 @@
 
                             <td>
                               @if($dataNutrisi->image)
-                                   <img src="{{ asset('storage/photo-nutrisi/' . $dataNutrisi->image) }}" alt="" width="50">
+                                   <img src="{{ asset('storage/photo-nutrisi/' . $dataNutrisi->image) }}" alt="" width="80">
                               @else
                                   <span>Tidak Ada Gambar</span>
                               @endif

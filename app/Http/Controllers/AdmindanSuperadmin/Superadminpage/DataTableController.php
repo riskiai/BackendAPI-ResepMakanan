@@ -34,12 +34,22 @@ class DataTableController extends Controller
         if ($request->ajax()) {
             
             $data = new User;
-            $data = $data->latest(); // Dimulai dari yang terbaru
+            $data = $data->orderBy('id', 'asc');
+
+            // Proses pencarian
+            if ($request->has('search') && !empty($request->input('search')['value'])) {
+                $search = $request->input('search')['value'];
+                $data = $data->where(function ($query) use ($search) {
+                    $query->where('name', 'like', '%' . $search . '%')
+                        ->orWhere('email', 'like', '%' . $search . '%');
+                });
+             }
 
             return DataTables::of($data)
-            ->addColumn('no', function($data){
-                return 'ini nomor';
+            ->addColumn('DT_RowIndex', function($data) {
+                return $data->id; // Gunakan kolom yang sesuai untuk indeks
             })
+            
             ->addColumn('photo', function($data){
                 return ' <img src="'.asset('storage/photo-user/' . $data->image).'" alt="" width="50">';
             })
@@ -49,11 +59,15 @@ class DataTableController extends Controller
             ->addColumn('email', function($data){
                 return $data->email;
             })
-            ->addColumn('action', function($data){
-                return '  <a href="'.route('superadmin.user.edit', ['id' => $data->id]).'" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
-                <a data-toggle="modal" data-target="#modal-hapus'.$data->id.'" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</a>';
+            ->addColumn('password', function($data){
+                return $data->password;
             })
+            // ->addColumn('action', function($data){
+            //     return '<a data-toggle="modal" data-target="#modal-hapus' . $data->id . '" class="btn btn-danger delete-btn" data-id="' . $data->id . '"><i class="fas fa-trash-alt"></i>Delete</a>';
+            // })
+            
             /* Render Untuk Image dan action */
+            
             ->rawColumns(['photo','action'])
             ->make(true);
         }
@@ -61,4 +75,16 @@ class DataTableController extends Controller
         return view('admindansuperadmin.superadminpage.datatable.serverside', compact('request'));
     }
  
+    public function delete(Request $request, $id)
+    {
+        $data = User::find($id);
+    
+        if ($data) {
+            $data->delete();
+        }
+    
+        return response()->json(['success' => true]);
+    }
+    
+
 }
