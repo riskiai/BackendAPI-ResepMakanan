@@ -1,4 +1,4 @@
-@extends('admindansuperadmin.superadminpage.layouts.main')
+@extends('admindansuperadmin.layouts.main')
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 @endsection
@@ -46,14 +46,10 @@
                         <th>Photo</th>
                         <th>Nama</th>
                         <th>Email</th>
-                        <th>Action</th>
+                        <th>Password</th>
+                        {{-- <th>Action</th> --}}
                       </tr>
                     </thead>
-                    <tbody>
-                        
-
-                    
-                    </tbody>
                   </table>
                   
                 </div>
@@ -90,17 +86,21 @@
         $('#serverside').DataTable({
             processing:true,
             pagination:true,
-            responsive:false,
+            responsive:true,
             serverSide:true,
             searching:true,
-            ordering:false,
+            ordering:true,
+            lengthMenu: [5],
+            order: [[0, 'asc']],
             ajax:{
                 url:"{{ route('superadmin.datatable.serverside') }}",
             },
             columns:[
                 {
-                    data : 'no',
-                    name : 'no',
+                    data : 'DT_RowIndex',
+                    name : 'DT_RowIndex',
+                    orderable: true,
+                    searchable: true,
                 },
                 {
                     data : 'photo',
@@ -115,11 +115,48 @@
                     name : 'email',
                 },
                 {
-                    data : 'action',
-                    name : 'action',
+                  data : 'password',
+                  name : 'password',
                 },
+                // {
+                //     data : 'action',
+                //     name : 'action',
+                // },
             ],
         });
       }
     </script>
+@endsection
+@section('scripts')
+<script>
+  $(document).ready(function () {
+      // ...
+
+      // Handle delete button click
+      $('#serverside').on('click', '.delete-btn', function () {
+          var userId = $(this).data('id');
+          deleteData(userId);
+      });
+
+      // ...
+
+      // Function to delete data
+      function deleteData(userId) {
+          $.ajax({
+              url: "{{ url('superadmin/datatable/serverside/delete') }}/" + userId,
+              type: 'DELETE',
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              success: function (response) {
+                  // Reload DataTable after successful deletion
+                  $('#serverside').DataTable().ajax.reload();
+              },
+              error: function (error) {
+                  console.error('Error deleting data:', error);
+              }
+          });
+      }
+  });
+</script>
 @endsection

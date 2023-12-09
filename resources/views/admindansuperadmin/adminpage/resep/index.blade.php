@@ -1,4 +1,4 @@
-@extends('admindansuperadmin.adminpage.layouts.main')
+@extends('admindansuperadmin.layouts.main')
 @section('css')
 <style>
    .description-cell {
@@ -66,9 +66,9 @@
                         <th>Pembuat</th>
                         <th>Photo</th>
                         <th>Judul</th>
-                        <th>Description</th>
                         <th>Durasi Masak</th>
                         <th>Porsi</th>
+                        <th>Description</th>
                         <th>Bahan Dan Langkah</th>
                         <th>Action</th>
                       </tr>
@@ -81,22 +81,23 @@
 
                             <td>
                               @if($dataResep->image)
-                                   <img src="{{ asset('storage/photo-resep/' . $dataResep->image) }}" alt="" width="50">
+                                   <img src="{{ asset('storage/photo-resep/' . $dataResep->image) }}" alt="" width="80">
                               @else
                                   <span>Tidak Ada Gambar</span>
                               @endif
                             </td>
                             <td>{{ $dataResep->judul }}</td>
-                            <td class="description-cell">
+                            {{-- <td class="description-cell">
                               @php
                                   $words = explode(' ', $dataResep->description);
                                   $limitedWords = array_slice($words, 0, 10);
                                   echo implode(' ', $limitedWords);
                                   if (count($words) > 20) echo '...';
                               @endphp
-                          </td>
+                           </td> --}}
                             <td>{{ $dataResep->waktu }}</td>
                             <td>{{ $dataResep->porsi }}</td>
+                            <td>{!! $dataResep->description !!}</td>
                             <td>{!! $dataResep->bahan_langkah !!}</td>
                             <td>
                                 <a href="{{ route('admin.resep.edit', ['id' => $dataResep->id]) }}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>

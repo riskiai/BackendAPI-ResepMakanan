@@ -1,4 +1,4 @@
-@extends('admindansuperadmin.adminpage.layouts.main')
+@extends('admindansuperadmin.layouts.main')
 @section('content')
 
 <div class="content-wrapper">
@@ -7,13 +7,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Edit Article</h1>
+            <h1 class="m-0">Edit Nutrisi</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item"><a href="{{ route('admin.article.index') }}">Back</a></li>
-              <li class="breadcrumb-item active">Edit Article</li>
+              <li class="breadcrumb-item active">Edit Nutrisi</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

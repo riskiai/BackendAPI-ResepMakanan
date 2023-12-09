@@ -1,4 +1,4 @@
-@extends('admindansuperadmin.adminpage.layouts.main')
+@extends('admindansuperadmin.layouts.main')
 @section('content')
 
 <div class="content-wrapper">
@@ -84,7 +84,7 @@
                         <br> 
                         @foreach($data->comments as $comment)
                             <div style="display: flex; align-items: center;">
-                                <strong style="font-size: 20px;"> {{ $comment->user->name }} : </strong> <strong>{!! html_entity_decode($comment->comment_resep) !!}</strong>
+                                <strong style="font-size: 20px;"> {{ $comment->user->name }} : </strong> <p style="margin-bottom: 10px;">&nbsp;&nbsp;  {!! html_entity_decode($comment->comment_resep) !!}</p>
                               
                             </div>
                         @endforeach

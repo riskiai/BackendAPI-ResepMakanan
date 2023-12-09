@@ -75,16 +75,19 @@ class UserController extends Controller
     }
 
     public function edit(Request $request, $id){
-        $data = User::find($id); 
+        $data = User::find($id);
+        $roles = Role::all();  // Tambahkan ini untuk mengambil semua roles
         
-        return view('admindansuperadmin.superadminpage.user.edit', compact('data'));
+        return view('admindansuperadmin.superadminpage.user.edit', compact('data', 'roles'));
     }
+    
 
     public function update(Request $request, $id){
         $validator = Validator::make($request->all(),[
             'image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
             'email' => 'required|email', 
             'name' => 'required',
+            'role' => 'required|exists:roles,name',
             'password' => 'nullable',
         ]);
     
@@ -121,6 +124,12 @@ class UserController extends Controller
             
 
         $data->save(); // Simpan pengguna yang telah diperbarui
+
+         // Menghapus semua peran pengguna sebelumnya
+        $data->roles()->detach();
+
+        // Menetapkan peran yang baru dipilih
+        $data->assignRole($request->role);
     
         return redirect()->route('superadmin.user.index');
     }

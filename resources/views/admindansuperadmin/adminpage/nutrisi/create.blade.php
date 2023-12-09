@@ -1,4 +1,4 @@
-@extends('admindansuperadmin.adminpage.layouts.main')
+@extends('admindansuperadmin.layouts.main')
 @section('content')
 
 <div class="content-wrapper">
@@ -7,13 +7,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Article</h1>
+            <h1 class="m-0">Nutrisi</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item"><a href="{{ route('admin.article.index') }}">Back</a></li>
-              <li class="breadcrumb-item active">Tambah Article</li>
+              <li class="breadcrumb-item active">Tambah Fakta Nutrisi</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -33,7 +33,7 @@
                       <!-- general form elements -->
                       <div class="card card-primary">
                         <div class="card-header">
-                          <h3 class="card-title">Form Tambah Article</h3>
+                          <h3 class="card-title">Form Tambah Nutrisi</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -41,7 +41,7 @@
                           <div class="card-body">
 
                             <div class="form-group custom-margin">
-                              <label for="exampleInputEmail1">Photo Article</label>
+                              <label for="exampleInputEmail1">Photo Nutrisi</label>
                               <input type="file" name="image" class="form-control " id="exampleInputEmail1" 
                               @error('image')
                                 <small>{{ $message }}</small>
