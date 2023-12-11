@@ -16,7 +16,7 @@
                     <h3>{{$latestResep->judul}}</h3>
                     <div class="d-flex gap-3 ">
                         <p><i class="fa-solid fa-utensils"></i> {{$latestResep->porsi}} </p>
-                        <p><i class="fa-solid fa-clock"></i> {{$latestResep->waktu}}</p>
+                        <p><i class="fa-solid fa-clock"></i> {{$latestResep->waktu}} </p>
                         <p class="kategori">Makanan berat</p>
                         <p class="khas">Indramayu</p>
                     </div>
@@ -25,17 +25,19 @@
                 <div class="col-lg-4 order-1">
                     <h3>Resep Terbaru</h3>
                     @foreach ($recipes as $index => $item )
-                    <div class="card-artikel">
-                        <div class="d-flex gap-2 p-2">
-                            <h5>0{{$index + 1}}</h5>
-                            <h5>{{$item->judul}}</h5>
+                        @if($index < 3)
+                        <div class="card-artikel position-relative">
+                            <div class="d-flex gap-2 p-2">
+                                <h5>0{{$index + 1}}</h5>
+                                <a href="{{route('detail-resep',$item->id)}}" class="stretched-link">{{$item->judul}}</a>
+                            </div>
+                            <div class="d-flex gap-3 ps-2">
+                            <p><i class="fa-solid fa-utensils"></i> {{$item->porsi}} </p>
+                            <p><i class="fa-solid fa-clock"></i> {{$item->waktu}}</p>
+                            </div>
+                            <p class="ps-2">{{$item->user->name}}</p>
                         </div>
-                        <div class="d-flex gap-3 ps-2">
-                        <p><i class="fa-solid fa-utensils"></i> {{$item->porsi}} </p>
-                        <p><i class="fa-solid fa-clock"></i> {{$item->waktu}}</p>
-                        </div>
-                        <p class="ps-2">{{$item->user->name}}</p>
-                    </div>
+                        @endif
                     @endforeach
 
                     {{-- <div class="card-artikel">

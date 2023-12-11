@@ -1,90 +1,57 @@
-@extends('admindansuperadmin.auth.layouts.main_register')
+@extends('userpage.layouts.login')
 @section('content')
 
-<div class="login-box">
-    <!-- /.login-logo -->
-    <div class="card card-outline card-primary">
-      <div class="card-header text-center">
-        <a href="{{ route('register') }}" class="h1"><b>YOMASAK</b></a>
-      </div>
-      <div class="card-body">
-        <p class="login-box-msg"> <strong>Halaman Register</strong> </p>
-  
-        <form action="{{ route('register-proses') }}" method="post">
-            @csrf
-
-            <div class="mb-3">
-                <div class="input-group">
-                  <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" value="{{ old('name') }}">
-                  <div class="input-group-append">
-                    <div class="input-group-text">
-                      <span class="fas fa-user"></span>
-                    </div>
-                  </div>
-                </div>
-                @error('name')
-                  <small class="text-danger">{{ $message }}</small>
-                @enderror
-              </div>
-            
-            <div class="mb-3">
-              <div class="input-group">
-                <input type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-envelope"></span>
-                  </div>
-                </div>
-              </div>
-              @error('email')
-                <small class="text-danger">{{ $message }}</small>
-              @enderror
-            </div>
-            
-            <div class="mb-3">
-              <div class="input-group">
-                <input type="password" name="password" class="form-control" placeholder="Password">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-lock"></span>
-                  </div>
-                </div>
-              </div>
-              @error('password')
-                <small class="text-danger">{{ $message }}</small>
-              @enderror
-            </div>
-            
+<main>
+    <section id="register" class="pt-5 mt-5 pb-5">
+        <div class="container">
             <div class="row">
-              <div class="col-8">
-                {{-- <div class="icheck-primary">
-                  <input type="checkbox" id="remember">
-                  <label for="remember">
-                    Remember Me
-                  </label>
-                </div> --}}
-              </div>
-              <!-- /.col -->
-              <div class="col-12 mb-3">
-                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
-              </div>
-              <!-- /.col -->
+                <div class="col-lg-6 d-lg-flex gap-2 d-none d-lg-block">
+                    <div class="img-register">
+                        <img src="{{asset('assets/image/login-img-1.png')}}" alt="">
+                    </div>
+                    <div class="img-register">
+                        <img src="{{url('assets/image/login-img-3.png')}}" alt="">
+                    </div>
+                    <div class="img-register">
+                        <img src="{{url('assets/image/login-img-2.png')}}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-5 col-12 offset-lg-1">
+                    <div class="form-register">
+                        <h3 class="text-center"> Register </h3>
+                        <form  action="{{ route('register-proses') }}" method="post" >
+                            @csrf
+                            <div class="mb-3">
+                                <label for="name" name="name" class="form-label">Nama</label>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="" value="{{ old('name')}}" >
+                                @error('nama')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">email</label>
+                                <input type="text" name="email" class="form-control" id="email" placeholder="" value="{{ old('email')}}" >
+                                @error('email')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="">
+                                <label for="password" class="form-label">password</label>
+                                <input type="password" name="password" class="form-control" id="password" placeholder="">
+                                @error('password')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="d-flex mt-3 justify-content-between">
+                                <a class="text-decoration-none text-black" href="{{ route('login') }}">Sudah Punya Akun ?</a>
+                                <button type="submit" href="#" class="btn-register btn text-decoration-none">Daftar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </form>
-          
-          
-  
-        {{-- <p class="mb-1">
-          <a href="#">I forgot my password</a>
-        </p> --}}
-        <p class="mb-0">
-          <a href="{{ route('login') }}" class="text-center">Akun Sudah Ada ? Login Sekarang</a>
-        </p>
-      </div>
-      <!-- /.card-body -->
-    </div>
-    <!-- /.card -->
-  </div>
-  <!-- /.login-box -->
+        </div>
+    </section>
+</main>
 
 @endsection

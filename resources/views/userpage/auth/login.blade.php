@@ -19,7 +19,7 @@
                 <div class="col-lg-5 col-12 offset-lg-1">
                     <div class="form-register">
                         <h3 class="text-center"> Login </h3>
-                        <form action="" >
+                        <form action="">
                             <div class="mb-3">
                                 <label for="email" class="form-label">email</label>
                                 <input type="text" class="form-control" id="email" placeholder="">

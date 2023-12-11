@@ -29,7 +29,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="profile-pic">
-                                <img src="{{asset('assets/image/profile.jpeg')}}" alt="Profile Picture">
+                                <img src="{{Auth::user()->image ? asset('storage/photo-user/' .Auth::user()->image) : asset('assets/image/default-profile.jpg')}}" alt="Profile Picture">
                             </div>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
