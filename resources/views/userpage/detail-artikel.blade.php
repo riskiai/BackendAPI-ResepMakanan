@@ -12,7 +12,7 @@
                 @endphp
                 <p>{{$article->created_at->diffForHumans()}}</p>
                 <div class="col-lg-11 col-12 pb-5 ">
-                    <img class="img-fluid w-100" src="{{asset('assets/image/nasi-goreng.png')}}"  alt="">
+                    <img src="{{ asset('storage/photo-article/' . $article->image) }}" alt="" class="card-img-top">
                 </div>
                 <div class="col-12">
                     {!!$article->description!!}

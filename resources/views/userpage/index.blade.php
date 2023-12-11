@@ -58,7 +58,8 @@
 
                         @foreach ($recipes as $item )
                         <div class="card shadow col-12 col-lg-auto" style="width: 25rem;">
-                            <img src="{{ asset('assets/image/nasi-goreng.png') }}" class="card-img-top" alt="...">
+                            {{-- <img src="{{ asset('assets/image/nasi-goreng.png') }}" class="card-img-top" alt="..."> --}}
+                            <img src="{{ asset('storage/photo-resep/' . $item->image) }}" alt="" class="card-img-top">
                             <div class="card-body  position-relative">
                                 <h5 class="card-title">{{$item->judul}}</h5>
                                 <p class="card-text"><a href="{{route('detail-resep',$item->id)}}" class="stretched-link text-decoration-none text-black">{{ Illuminate\Support\Str::limit(strip_tags($item->description),30) }}</a></p>
@@ -93,7 +94,7 @@
                         @endphp
                         @foreach ($articles as $item )
                         <div class="card shadow col-12 col-lg-auto" style="width: 15rem;">
-                            <img src="{{ asset('assets/image/nasi-goreng.png') }}" class="card-img-top" alt="...">
+                            <img src="{{ asset('storage/photo-article/' . $item->image) }}" alt="" class="card-img-top">
                             <div class="card-body  position-relative">
                                 <h5 class="card-title">{{$item->judul}}</h5>
                                 <p class="card-text"><a href="{{route('detail-artikel',$item->id)}}" class="stretched-link text-decoration-none text-black">
@@ -125,22 +126,23 @@
                 </div>
             </div>
                 <div class="card-container swiper-wrapper">
-                    {{-- @foreach ($nutrisi as $item )
+                    @foreach ($nutrisi as $item )
                     <div class="card shadow swiper-slide" style="width: 20rem;">
-                        <img src="{{ asset('assets/image/nasi-goreng.png') }}" class="card-img-top" alt="...">
+                        {{-- <img src="{{ asset('assets/image/nasi-goreng.png') }}" class="card-img-top" alt="..."> --}}
+                        <img src="{{ asset('storage/photo-nutrisi/' . $item->image) }}" alt="" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title">Nasi goreng</h5>
+                            <h5 class="card-title">{{ $item->judul }}</h5>
                             <p class="card-text">
                                 <ul class="ps-0 text-decoration-none list-unstyled">
-                                    <li>Energi  : 1072.5 Kkal </li>
-                                    <li>Protein : 130.2 gram </li>
-                                    <li>Lemak   : 38.3 gram </li>
-                                    <li>Karbohidrat : 63.8 gram </li>
+                                    <li>{{ $item->energi }} </li>
+                                    <li>{{ $item->protein  }}</li>
+                                    <li>{{ $item->lemak  }}</li>
+                                    <li>{{ $item->karbohidrat  }}</li>
                                 </ul>
                             </p>
                         </div>
                     </div>
-                    @endforeach --}}
+                    @endforeach
                 </div>
         </section>
 
