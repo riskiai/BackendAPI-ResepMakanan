@@ -22,7 +22,7 @@
                     <p>{!! $resep->description !!}</p>
                 </div>
                     <div class="img-author d-flex  ">
-                        <img src="{{asset('assets/image/profile.jpeg')}}" alt="">
+                        <img src="{{Auth::user()->image ? asset('storage/photo-user/' .Auth::user()->image) : asset('assets/image/default-profile.jpg')}}" alt="User Image">
                         <div class="ps-2 d-flex flex-column">
                             <p class="m-0">{{$resep->user->name}}</p>
                             <p class="time p-0">{{$resep->created_at}}</p>
@@ -110,8 +110,11 @@
                     </div>
                     <div>
                         @foreach ($resep->comments as $item )
-                        <div class="d-flex flex-row p-3 mb-3"> <img src="https://asapcairtenajar.com/frontend/assets/image/user.png"
-                            style="width: 40px;height:40px" class="rounded-circle mr-3 me-3">
+                        <div class="d-flex flex-row p-3 mb-3"> 
+                            {{-- <img src="https://asapcairtenajar.com/frontend/assets/image/user.png"
+                            style="width: 40px;height:40px" class="rounded-circle mr-3 me-3"> --}}
+
+                            <img src="{{Auth::user()->image ? asset('storage/photo-user/' .Auth::user()->image) : asset('assets/image/default-profile.jpg')}}"  style="width: 40px; height:40px" class="rounded-circle mr-3 me-3" alt="User Image">
                         <div class="w-100">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex flex-row align-items-center"><span class="mr-2 comment-name"><B>{{$item->user->name}}</B></span>
