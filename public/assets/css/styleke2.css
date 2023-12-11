@@ -17,7 +17,7 @@ textarea:focus, input:focus{
     border-radius: 5px;
     color: #FFFFFF;
     max-width:100px ;
-    padding:  5px 20px !important; 
+    padding:  5px 20px !important;
 }
 
 .btn-edit{
@@ -27,7 +27,7 @@ textarea:focus, input:focus{
     border-radius: 5px;
     max-width:80px ;
     height: 30px;
-    padding:  5px 20px !important; 
+    padding:  5px 20px !important;
 }
 .btn-edit a,
 .btn-delete a{
@@ -41,7 +41,7 @@ textarea:focus, input:focus{
     border-radius: 5px;
     max-width:80px;
     height: 30px;
-    padding:  5px 20px !important; 
+    padding:  5px 20px !important;
 }
 
 
@@ -67,7 +67,7 @@ nav .btn-login{
     border-radius: 5px;
     color: #FFFFFF;
     max-width:80px ;
-    padding:  5px 20px !important; 
+    padding:  5px 20px !important;
 }
 
 main{
@@ -259,12 +259,12 @@ main{
     border-radius: 5px;
     color: #FFFFFF;
     max-width:80px ;
-    padding:  5px 20px !important; 
+    padding:  5px 20px !important;
 }
 
 /**************** Resep ***************/
 
-#resep .khas, 
+#resep .khas,
 #detail-resep .khas{
     padding: 4px 8px;
     border-radius: 10px;
@@ -330,8 +330,15 @@ main{
     padding: 5px 10px;
     text-decoration: none;
     border: 1px solid;
+    scroll-margin-top: 200px;
+
 }
-/* 
+
+#section-bahan .abjad-bahan h5{
+    margin-top: 70px;
+}
+
+/*
 #bahan .list-bahan {
     display: flex;
 } */
@@ -374,7 +381,7 @@ main{
      overflow: hidden;
     border-radius: 50%;
  }
- 
+
  .profile-pic img{
     width: 100%;
     height: auto;
@@ -387,7 +394,7 @@ main{
  .profile-menu .fa-fw {
    margin-right: 10px;
  }
- 
+
  .toggle-change::after {
    border-top: 0;
    border-bottom: 0.3em solid;
@@ -465,7 +472,7 @@ body{
     background-color: #26A8D2;
     border-radius: 5px;
     max-width:60px ;
-    padding:  5px 10px !important; 
+    padding:  5px 10px !important;
 }
 
 
@@ -476,7 +483,7 @@ body{
     background-color: #FF3939;
     border-radius: 5px;
     max-width:60px ;
-    padding:  5px 10px !important; 
+    padding:  5px 10px !important;
 }
 
     #showcase .input,
@@ -488,7 +495,7 @@ body{
     padding: 4px 8px;
 }
 
-    
+
 #showcase h1{
  font-size: 1.5rem;
 }

@@ -23,474 +23,408 @@
             <div class="row">
                 <h5>Cari bahan berdasarkan abjad</h5>
                 <div class="abjad">
-                    <a href="#">A</a>
-                    <a href="#">B</a>
-                    <a href="#">C</a>
-                    <a href="#">D</a>
-                    <a href="#">E</a>
-                    <a href="#">F</a>
-                    <a href="#">G</a>
-                    <a href="#">H</a>
-                    <a href="#">I</a>
-                    <a href="#">J</a>
-                    <a href="#">K</a>
-                    <a href="#">L</a>
-                    <a href="#">M</a>
-                    <a href="#">N</a>
-                    <a href="#">O</a>
-                    <a href="#">P</a>
-                    <a href="#">Q</a>
-                    <a href="#">R</a>
-                    <a href="#">S</a>
-                    <a href="#">T</a>
-                    <a href="#">U</a>
-                    <a href="#">V</a>
-                    <a href="#">W</a>
-                    <a href="#">X</a>
-                    <a href="#">Y</a>
-                    <a href="#">Z</a>
+                    <a href="#a">A</a>
+                    <a href="#b">B</a>
+                    <a href="#c">C</a>
+                    <a href="#d">D</a>
+                    <a href="#e">E</a>
+                    <a href="#f">F</a>
+                    <a href="#g">G</a>
+                    <a href="#h">H</a>
+                    <a href="#i">I</a>
+                    <a href="#j">J</a>
+                    <a href="#k">K</a>
+                    <a href="#l">L</a>
+                    <a href="#m">M</a>
+                    <a href="#n">N</a>
+                    <a href="#o">O</a>
+                    <a href="#p">P</a>
+                    <a href="#q">Q</a>
+                    <a href="#r">R</a>
+                    <a href="#s">S</a>
+                    <a href="#t">T</a>
+                    <a href="#u">U</a>
+                    <a href="#v">V</a>
+                    <a href="#w">W</a>
+                    <a href="#x">X</a>
+                    <a href="#y">Y</a>
+                    <a href="#z">Z</a>
                 </div>
             </div>
             <div class="row pt-5">
-                <div class="abjad-bahan pt-4 ">
+                <div class="abjad-bahan" id="a">
                     <h5>A</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Ayam</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Asam Jawa</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Ampela</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Acar</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4 pt-4">
+                <div class="abjad-bahan" id="b">
                     <h5>B</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">bayam</a>
+                            <a href="">Bayam</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Brokoli</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Bawang Putih</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Bihun</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="c">
                     <h5>C</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Ceker Ayam</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Cumi</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Cengkeh</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Cabai</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="d">
                     <h5>D</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Daging Sapi</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Daun Bawang</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Daun Salam</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Daun Jeruk</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="e">
                     <h5>E</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Ebi</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Entog</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
+                            <a href="">Edamame</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="f">
                     <h5>F</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
+                            <a href="">Fillet Ayam</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="g">
                     <h5>G</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Gula Pasir</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Gula Batu</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Garam</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Gandum</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="h">
                     <h5>H</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Hazelnut</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Ham</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
+                            <a href="">Hati Ayam</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="i">
                     <h5>I</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
+                            <a href="">Ikan</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="j">
                     <h5>J</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Jahe</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Jeruk Nipis</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Jengkol</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Jamur</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="k">
                     <h5>K</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Kunyit</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Ketumbar</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Kangkung</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Kecap</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="l">
                     <h5>L</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Lengkuas</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Lada</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Lobak</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Lemon</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="m">
                     <h5>M</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Merica</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Madu</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Mentega</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Minyak</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="n">
                     <h5>N</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Nasi</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Nanas</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Nangka Muda</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Nangka</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="o">
                     <h5>O</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Otak-otak</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Oregano</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
+                            <a href="">Opak</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="p">
                     <h5>P</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Pala</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Paprika</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Pandan</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Pete</a>
+                        </li>
+                        <li>
+                            <a href="">Penyedap Rasa</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="q">
                     <h5>Q</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
+                            <a href="">-</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="r">
                     <h5>R</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Ragi</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Rambutan</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Rumput Laut</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Roti</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="s">
                     <h5>S</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Sereh</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Sambal</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Saus</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Susu</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="t">
                     <h5>T</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Tepung</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Telur</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Tomat</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Terasi</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="u">
                     <h5>U</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Udang</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Ubi</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Usus Ayam</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Urap</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="v">
                     <h5>V</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Vanilla</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
+                            <a href="">Vanili</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="w">
                     <h5>W</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
+                            <a href="">Wijen</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Wortel</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Wagyu</a>
                         </li>
                         <li>
-                            <a href="">ayam</a>
+                            <a href="">Wijen</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="x">
                     <h5>X</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
+                            <a href="">-</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="y">
                     <h5>Y</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
+                            <a href="">Yoghurt</a>
                         </li>
                     </ul>
                 </div>
-                <div class="abjad-bahan pt-4">
+                <div class="abjad-bahan" id="z">
                     <h5>Z</h5>
                     <ul class="list-bahan">
                         <li>
-                            <a href="">ceker ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
-                        </li>
-                        <li>
-                            <a href="">ayam</a>
+                            <a href="">Zaitun</a>
                         </li>
                     </ul>
                 </div>
