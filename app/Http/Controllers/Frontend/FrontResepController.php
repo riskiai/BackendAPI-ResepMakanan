@@ -11,10 +11,20 @@ use Illuminate\Support\Facades\Auth;
 
 class FrontResepController extends Controller
 {
-    public function index(){
+    public function index(Request $request)
+    {
         $latestResep = Resep::with('comments')->latest()->first();
-        $recipes = Resep::with('comments')->get();
-        return view('userpage.resep',compact('recipes','latestResep'));
+
+        $query = Resep::latest();
+
+        /* Melakukan Filter Data */
+        if ($request->get('search')) {
+            $query->where('judul', 'LIKE', '%' . $request->get('search') . '%');
+        }
+
+        $recipes = $query->paginate(3);
+
+        return view('userpage.resep', compact('recipes', 'latestResep'));
     }
 
     public function detail(Request $request, $id){

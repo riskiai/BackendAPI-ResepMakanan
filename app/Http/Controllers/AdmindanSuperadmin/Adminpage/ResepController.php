@@ -22,7 +22,7 @@ class ResepController extends Controller
             $query->where('judul', 'LIKE', '%' . $request->get('search') . '%');
         }
 
-        $data = $query->paginate(5);
+        // $data = $query->paginate(5);
 
         $data = $query->paginate(3);
 
