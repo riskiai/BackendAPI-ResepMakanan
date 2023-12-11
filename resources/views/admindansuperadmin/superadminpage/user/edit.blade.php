@@ -24,7 +24,7 @@
         <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            
+
         <form action="{{ route('superadmin.user.update',['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -61,16 +61,16 @@
                                   <small>{{ $message }}</small>
                               @enderror
                             </div>
-                         
-                        
+
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nama</label>
                                 <input type="text" name="name" class="form-control" value="{{ $data->name }}" id="exampleInputEmail1" placeholder="Enter Name">
-                                @error('name')
-                                  <small>{{ $message }}</small>
-                              @enderror
+                            @error('name')
+                                <small>{{ $message }}</small>
+                            @enderror
                               </div>
-                         
+
                               <div class="form-group">
                                 <label for="exampleInputPassword1">Peran</label>
                                 <select name="role" class="form-control">
@@ -84,21 +84,21 @@
                                     <small>{{ $message }}</small>
                                 @enderror
                             </div>
-                            
 
-                           
+
+
                             <div class="form-group">
                               <label for="exampleInputPassword1">Password</label>
                               <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                               @error('password')
-                                  <small>{{ $message }}</small>
+                                <small>{{ $message }}</small>
                               @enderror
                             </div>
 
                             <div class="form-group">
                               <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
-        
+
                             {{-- <div class="form-group">
                               <label for="exampleInputFile">File input</label>
                               <div class="input-group">
@@ -111,19 +111,19 @@
                                 </div>
                               </div>
                             </div> --}}
-                          
+
                           <!-- /.card-body -->
-          
-                        
+
+
                         </form>
                       </div>
                       <!-- /.card -->
-          
+
                     </div>
                     <!--/.col (left) -->
                   </div>
             </form>
-         
+
           <!-- /.row -->
         </div><!-- /.container-fluid -->
       </section>

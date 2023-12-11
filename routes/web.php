@@ -18,6 +18,7 @@ use App\Http\Controllers\AdmindanSuperadmin\Auth\RegisterController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\FrontBahanController;
 use App\Http\Controllers\Frontend\FrontArtikelController;
+use App\Http\Controllers\Frontend\FrontNutrisiController;
 use App\Http\Controllers\Frontend\FrontResepController;
 use App\Http\Controllers\Guest\ProfileController;
 use App\Http\Controllers\Guest\GuestResepController;
@@ -39,10 +40,6 @@ Route::get('/', function(){
 
 // Route::get('/login', [LoginController::class, 'index'])->name('login');
 
-
-
-
-
 /* Login */
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
@@ -54,16 +51,18 @@ Route::post('/register_proses', [RegisterController::class, 'register_proses'])-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/bahan', [FrontBahanController::class,'index'])->name('bahan');
 Route::get('/resep', [FrontResepController::class,'index'])->name('resep');
+Route::get('/nutrisi', [FrontNutrisiController::class,'index'])->name('nutrisi');
 Route::get('/detail-resep/{id}', [FrontResepController::class,'detail'])->name('detail-resep');
 Route::post('/detail-resep/{id}', [FrontResepController::class, 'addComment'])->name('detail-resep.addComment');
 Route::get('/artikel', [FrontArtikelController::class,'index'])->name('artikel');
 Route::get('/detail-artikel/{id}', [FrontArtikelController::class,'detail'])->name('detail-artikel');
 
 
-/* login */
+/* login user*/
 Route::group(['prefix' => 'guest', 'middleware' => ['auth'], 'as' => 'guest.'], function(){
     Route::get('/profile',[ProfileController::class, 'index'])->name('profile');
-    Route::get('/profile/edit',[ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile/edit/{id}',[ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/update/{id}', [ProfileController::class, 'updateProfile'])->name('profile.update');
     Route::get('/profile/password',[ProfileController::class, 'editPassword'])->name('profile.edit-password');
     Route::get('/tulis-resep',[GuestResepController::class, 'index'])->name('tulis-resep');
     Route::get('/daftaresepku',[GuestResepController::class, 'detail'])->name('resepku');

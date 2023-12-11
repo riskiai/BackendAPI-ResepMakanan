@@ -24,7 +24,7 @@
         <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            
+
         <form action="{{ route('admin.resep.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
                 <div class="row">
@@ -42,7 +42,7 @@
 
                             <div class="form-group custom-margin">
                               <label for="exampleInputEmail1">Photo Resep</label>
-                              <input type="file" name="image" class="form-control " id="exampleInputEmail1" 
+                              <input type="file" name="image" class="form-control " id="exampleInputEmail1" >
                               @error('image')
                                 <small>{{ $message }}</small>
                             @enderror
@@ -79,7 +79,7 @@
                                     <small>{{ $message }}</small>
                                 @enderror
                               </div>
-                         
+
                             <div class="form-group">
                                 <label for="exampleInputDescription">Description</label>
                                 <textarea name="description" id="description-ckeditor" class="ckeditor form-control my-textarea" id="exampleInputDescription" placeholder="Enter Description">{{ old('description') }}</textarea>
@@ -87,12 +87,12 @@
                                     <small>{{ $message }}</small>
                                 @enderror
                             </div>
-                          
+
 
                             <div class="form-group">
                               <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
-        
+
                             {{-- <div class="form-group">
                               <label for="exampleInputFile">File input</label>
                               <div class="input-group">
@@ -105,19 +105,19 @@
                                 </div>
                               </div>
                             </div> --}}
-                          
+
                           <!-- /.card-body -->
-          
-                        
+
+
                         </form>
                       </div>
                       <!-- /.card -->
-          
+
                     </div>
                     <!--/.col (left) -->
                   </div>
             </form>
-         
+
           <!-- /.row -->
         </div><!-- /.container-fluid -->
       </section>

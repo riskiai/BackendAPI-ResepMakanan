@@ -12,15 +12,17 @@
             </form>
             <div class="row pt-5">
                 <div class="col-lg-8 col-12 order-2 order-lg-0 ">
+                    <div class="position-relative">
                     <img src="{{asset('assets/image/nasi-goreng.png')}}" alt="" class="w-100">
                     <h3>{{$latestResep->judul}}</h3>
                     <div class="d-flex gap-3 ">
                         <p><i class="fa-solid fa-utensils"></i> {{$latestResep->porsi}} </p>
                         <p><i class="fa-solid fa-clock"></i> {{$latestResep->waktu}} </p>
-                        <p class="kategori">Makanan berat</p>
-                        <p class="khas">Indramayu</p>
+                        {{-- <p class="kategori">Makanan berat</p>
+                        <p class="khas">Indramayu</p> --}}
                     </div>
-                    <p class="p-0">{{strip_tags($latestResep->description)}}</p>
+                    <a href="{{route('detail-resep',$latestResep->id)}}" class="p-0 stretched-link text-black text-decoration-none">{{strip_tags($latestResep->description)}}</a>
+                </div>
                 </div>
                 <div class="col-lg-4 order-1">
                     <h3>Resep Terbaru</h3>
@@ -65,22 +67,25 @@
                 </div>
             </div>
             <div class="row mt-5 mb-5">
-                <div class="d-flex flex-column flex-md-row align-items-center card-artikel p-3">
+
+                @foreach ($recipes as $item )
+                <div class="d-flex flex-column flex-md-row align-items-center card-artikel p-3 mb-3 position-relative">
                     <div class="col-12 col-md-4">
                         <img class="w-100" src="{{asset('assets/image/nasi-goreng.png')}}" alt="nasi-goreng">
                     </div>
                     <div class="col-md-8 col-12 ps-md-3">
-                        <h3>ini resep nasi goreng</h3>
-                        <p class="p-0">ini adalah resep opor buat lebaran, opor merupakan makanan yang khas disajikan saat lebaran nah ini dia resep opor yang enak poll karena sudah sering jadi langganan resep saat lebaran, tidak seperti resep opor biasanya resep opor ini....</p>
+                        <h3>{{$item->judul}}</h3>
+                        <a href="{{route('detail-resep',$item->id)}}" class="p-0 stretched-link"> {{ Illuminate\Support\Str::limit(strip_tags($item->description),100) }}</a>
                         <div class="d-flex gap-3 ">
-                        <p><i class="fa-solid fa-utensils"></i> 4 porsi </p>
-                        <p><i class="fa-solid fa-clock"></i> 30 menit</p>
-                        <p class="kategori">Makanan berat</p>
-                        <p class="khas">Indramayu</p>
+                        <p><i class="fa-solid fa-utensils"></i> {{$item->porsi}} </p>
+                        <p><i class="fa-solid fa-clock"></i> {{$item->waktu}} </p>
+                        {{-- <p class="kategori">Makanan berat</p>
+                        <p class="khas">Indramayu</p> --}}
                     </div>
                     <p>oleh nizar</p>
                     </div>
                 </div>
+                @endforeach
 
             </div>
         </div>

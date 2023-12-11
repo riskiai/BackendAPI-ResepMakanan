@@ -13,6 +13,7 @@ class HomeController extends Controller
 {
     public function index(Request $request){
         $articles = Article::all();
+        $nutrisi = Nutrisi::all();
         $recipes = Resep::with('comments')->get();
         // $recipes = Resep::with('comments')->where('id',$id)->firstOrFail();
 
@@ -25,7 +26,7 @@ class HomeController extends Controller
 
         // $data = $query->paginate(5);
 
-        return view('userpage.index', compact('articles','recipes'));
+        return view('userpage.index', compact('articles','recipes', 'nutrisi'));
     }
 
 

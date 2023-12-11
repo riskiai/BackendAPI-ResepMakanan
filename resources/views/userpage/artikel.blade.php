@@ -2,51 +2,44 @@
 @section('content')
 
 <main>
-    <section id="hero" class="pt-5">
+    <section id="hero" class="pt-5 mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-12 order-2 order-lg-0 position-relative ">
                     <img src="{{asset('assets/image/nasi-goreng.png')}}" alt="" class="w-100">
-                    <p class="p-0">1 jam yang lalu</p>
-                    <h3>ini resep nasi goreng asli khas  mamang nizar</h3>
-                    <a href="#" class="stretched-link p-0 text-black text-decoration-none">ini adalah resep khas mamang nizar nasi goreng ini beda dari nasi goreng yang biasa kita buat nasi goreng ini hanya menggunakan bahan...</a>
+                    <p class="p-0">{{$latestArticle->created_at->diffForHumans()}}</p>
+                    <h3>{{$latestArticle->judul}}</h3>
+                    <a href="{{route('detail-artikel',$latestArticle->id)}}" class="stretched-link p-0 text-black text-decoration-none">{{strip_tags($latestArticle->description)}}</a>
                 </div>
                 <div class="col-lg-4 order-1">
                     <h3>Artikel Terbaru</h3>
-                    <div class="card-artikel position-relative">
-                        <div class="d-flex gap-2 p-2">
-                            <h5>01</h5>
-                            <a href="#" class="stretched-link">ini cara membuat nasi goreng biar kaya abang abang</a>
+                    @foreach ($article as $index => $item )
+                        @if ($index < 3)
+                        <div class="card-artikel position-relative">
+                            <div class="d-flex gap-2 p-2">
+                                <h5>{{$index + 1}}</h5>
+                                <a href="#" class="stretched-link">{{$item->judul}}</a>
+                            </div>
+                            <p>{{$item->created_at->diffForHumans()}}</p>
                         </div>
-                        <p>1 jam yang lalu</p>
-                    </div>
-                    <div class="card-artikel position-relative">
-                        <div class="d-flex gap-2 p-2">
-                            <h5>02</h5>
-                            <a href="#" class="stretched-link">ini cara membuat nasi goreng biar kaya abang abang</a>
-                        </div>
-                        <p>1 jam yang lalu</p>
-                    </div>
-                    <div class="card-artikel position-relative">
-                        <div class="d-flex gap-2 p-2">
-                            <h5>03</h5>
-                            <a href="#" class="stretched-link">ini cara membuat nasi goreng biar kaya abang abang</a>
-                        </div>
-                        <p>1 jam yang lalu</p>
-                    </div>
+                        @endif
+                    @endforeach
                 </div>
             </div>
             <div class="row mt-5 mb-5">
-                <div class="d-flex flex-column flex-md-row align-items-center card-artikel p-3 position-relative">
+                @foreach ($article as $item)
+                <div class="d-flex flex-column flex-md-row align-items-center card-artikel p-3 position-relative mb-3">
                     <div class="col-md-4 col-12">
                         <img class="w-100" src="{{('frontend/img/nasi-goreng.png')}}" alt="nasi-goreng">
                     </div>
                     <div class="card-desc col-md-8 col-12 ps-md-3">
-                        <h3>ini resep nasi goreng</h3>
-                        <a href="#" class="d-inline-block p-0 stretched-link text-black text-decoration-none">ini adalah resep opor buat lebaran, opor merupakan makanan yang khas disajikan saat lebaran nah ini dia resep opor yang enak poll karena sudah sering jadi langganan resep saat lebaran, tidak seperti resep opor biasanya resep opor ini....</a>
-                        <p class="pt-5 ps-0">1 jam yang lalu</p>
+                        <h3>{{$item->judul}}</h3>
+                        <a href="{{route('detail-artikel',$item->id)}}" class="d-inline-block p-0 stretched-link text-black text-decoration-none">{{strip_tags($item->description)}}</a>
+                        <p class="pt-5 ps-0">{{$item->created_at->diffForHumans()}}</p>
                     </div>
                 </div>
+                @endforeach
+
             </div>
         </div>
     </section>

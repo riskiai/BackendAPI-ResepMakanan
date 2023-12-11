@@ -197,7 +197,7 @@
             Default Text atau Logika Lainnya
         @endif
     </span>
-    
+
     </a>
 
     <!-- Sidebar -->
@@ -205,7 +205,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('assets/image/riski.jpg') }}" style="border-radius: 500%;"  class=" elevation-2" alt="User Image">
+          <img src="{{Auth::user()->image ? asset('storage/photo-user/' .Auth::user()->image) : asset('assets/image/default-profile.jpg')}}" style="border-radius: 500%;"  class=" elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block" style="font-size: 25px; font-weight:bold">{{ Auth::user()->name }}</a>
@@ -229,9 +229,9 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-         
 
-          
+
+
           <li class="nav-item">
             <a href="{{ route('dashboard') }}" class="nav-link">
               <i class="nav-icon  fas fa-tachometer-alt"></i>
@@ -321,7 +321,7 @@
               </p>
             </a>
           </li>
-          
+
           <li class="nav-item">
             <a href="{{ route('admin.article.index') }}" class="nav-link">
               <i class="nav-icon  fas fa-newspaper"></i>
@@ -335,7 +335,7 @@
             <a href="{{ route('admin.comment.index') }}" class="nav-link">
               <i class="nav-icon far fa-comments"></i>
               <p>
-                Data Comment 
+                Data Comment
               </p>
             </a>
           </li>
@@ -349,7 +349,7 @@
               </p>
             </a>
           </li>
-      
+
 
          {{--  <li class="nav-item">
             <a href="#" class="nav-link">
@@ -386,10 +386,10 @@
               </li>
             </ul>
           </li> --}}
-         
+
           {{-- <li class="nav-header">EXAMPLES</li>         --}}
-         
-          
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -398,7 +398,7 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  
+
   @yield('content')
 
   <!-- /.content-wrapper -->

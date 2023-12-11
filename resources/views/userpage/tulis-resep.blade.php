@@ -1,20 +1,25 @@
 @extends('userpage.layouts.main')
 @section('content')
-
-
 <main>
     <section id="tulis-resep">
-        <div class="container">
+        <div class="container mt-5">
             <h1 class="mb-5 text-center pt-5">AYO BAGIKAN RESEP TERBAIKMU</h1>
             <div class="row">
                 <form action="">
                     <div class="desc-resep row">
-                        <div class="col-12 col-md-4 pt-4">
+                        {{-- <div class="col-12 col-md-4 pt-4">
                             <div class="upload-img text-center mx-auto">
                                 <i class="fa-solid fa-camera"></i>
                             </div>
-                        </div>
-                        <div class="col-md-8 col-12">
+                        </div> --}}
+                        <div class="form-group mb-3">
+                            <label for="foto">Photo Resep</label>
+                            <input type="file" name="image" class="form-control " id="foto" >
+                            @error('image')
+                              <small>{{ $message }}</small>
+                          @enderror
+                          </div>
+                        <div class=" col-12">
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Porsi :</label>
@@ -35,7 +40,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bahan-resep row mt-5">
+
+                    {{-- <div class="bahan-resep row mt-5">
                         <h3>Bahan - Bahan</h3>
                         <div class="col-md-12 ">
                             <div class="input-bahan">
@@ -64,7 +70,7 @@
                             <a href="#" class="add-langkah btn-primary d-flex align-items-center text-decoration-none text-center"><i class="fa-solid fa-plus"></i> Langkah</a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="pt-5 ">
                         <a href="#" class="btn-primary text-decoration-none ms-auto text-center d-block"> Kirim </a>
                     </div>
@@ -73,5 +79,4 @@
         </div>
     </section>
 </main>
-
 @endsection

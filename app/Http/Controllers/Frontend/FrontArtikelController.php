@@ -10,7 +10,11 @@ use App\Models\Article;
 class FrontArtikelController extends Controller
 {
     public function index(){
-        return view('userpage.artikel');
+        $article = Article::all();
+        $latestArticle = Article::latest()->first();
+
+
+        return view('userpage.artikel',compact('article','latestArticle'));
     }
 
     public function detail(Request $request, $id){
