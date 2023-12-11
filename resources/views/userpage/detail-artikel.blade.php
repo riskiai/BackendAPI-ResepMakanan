@@ -6,7 +6,11 @@
         <div class="container">
             <div class="row">
                 <h1>{{$article->judul}}</h1>
-                <p>{{$article->created_at}}</p>
+                @php
+                    // Set the locale to Bahasa Indonesia
+                    \Carbon\Carbon::setLocale('id');
+                @endphp
+                <p>{{$article->created_at->diffForHumans()}}</p>
                 <div class="col-lg-11 col-12 pb-5 ">
                     <img class="img-fluid w-100" src="{{asset('assets/image/nasi-goreng.png')}}"  alt="">
                 </div>

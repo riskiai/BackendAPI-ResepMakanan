@@ -13,14 +13,14 @@ class CommentController extends Controller
     public function index(Request $request)
     {
         $query = Comment::with('user', 'resep')->latest();
-    
+
         /* Melakukan Filter Data */
         if ($request->get('search')) {
-            $query->where('comment_resep', 'LIKE', '%' . $request->get('search') . '%'); 
+            $query->where('comment_resep', 'LIKE', '%' . $request->get('search') . '%');
         }
-    
+
         $data = $query->paginate(5);
-    
+
         return view('admindansuperadmin.adminpage.comment.index', compact('data','request'));
     }
 
@@ -33,5 +33,5 @@ class CommentController extends Controller
 
         return redirect()->route('admin.comment.index');
     }
-    
+
 }

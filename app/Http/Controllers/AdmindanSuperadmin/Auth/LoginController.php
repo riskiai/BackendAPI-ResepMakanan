@@ -17,10 +17,11 @@ class LoginController extends Controller
     public function index(){
         // Jika pengguna sudah login, arahkan kembali ke halaman dashboard
         if (Auth::check()) {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('dashboard');
         }
         return view('admindansuperadmin.auth.login');
     }
+
 
     public function login_proses(Request $request){
         $request->validate([
@@ -35,6 +36,10 @@ class LoginController extends Controller
         ];
 
         if(Auth::attempt($data)){
+            $user = Auth::user();
+            if ($user->hasRole('guest')) {
+                return redirect('/home');
+            }
             return redirect()->route('dashboard')->with('success', 'Kamu Berhasil Login');
         }else{
             return redirect()->route('login')->with('failed', 'Email Atau Password Salah');
@@ -46,7 +51,5 @@ class LoginController extends Controller
         Auth::logout();
         return redirect()->route('login')->with('success', 'Kamu Berhasil Logout');
     }
-    
-   
-    
+
 }

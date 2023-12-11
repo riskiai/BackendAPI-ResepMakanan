@@ -40,7 +40,7 @@
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">Data Article</h3>
-  
+
                   <div class="card-tools">
 
                     {{-- Filter Data --}}
@@ -54,7 +54,7 @@
                         </div>
                       </div>
                     </form>
-                
+
                   </div>
                 </div>
                 <!-- /.card-header -->
@@ -124,7 +124,7 @@
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                  <button type="submit" class="btn btn-primary">Ya, Hapus Data</button>
                                 </form>
-                                
+
                               </div>
                             </div>
                             <!-- /.modal-content -->
@@ -132,18 +132,18 @@
                           <!-- /.modal-dialog -->
                         </div>
                     @endforeach
-                    
+
                     </tbody>
                   </table>
-                  
+
                 </div>
 
                 <div class="mt-3 ml-3">
                   {{ $data->onEachSide(2)->links() }}
               </div>
-              
-              
-                
+
+
+
                 <!-- /.card-body -->
               </div>
               <!-- /.card -->

@@ -123,20 +123,24 @@
                     </div>
                     <hr>
                         @endforeach
-
                     </div>
-                    <form method="post" action="" class ="row-cols-lg-auto g-3" >
+                    <form action="{{ route('detail-resep.addComment', ['id' => $resep->id]) }}" method="POST" class ="row-cols-lg-auto g-3" >
+                        @csrf
                         <div class="mb-3 mt-3 col-lg-4 ">
-                        <input type="hidden" name="_token" value="iuInMoQPbuIaeNpYRfJLdzok0FavvYmsXzwVwDFA">
+                        {{-- <input type="hidden" name="_token" value="iuInMoQPbuIaeNpYRfJLdzok0FavvYmsXzwVwDFA">
                             <label for="nama" name="name" class="form-label">Nama</label>
                             <input type="text" class="form-control" id="nama" name="name" aria-describedby="nama">
-                        </div>
+                        </div> --}}
                         <div class="form-floating col-12 col-lg-auto">
-                            <textarea class="form-control" name="body" placeholder="Leave a comment here" id="floatingTextarea"
-                                style="height: 100px"></textarea>
+                            <textarea class="form-control" name="comment" placeholder="Leave a comment here" id="floatingTextarea"
+                                style="height: 100px" required></textarea>
                             <label for="floatingTextarea">Isi komentar...</label>
                         </div>
-                        <button type="submit" class="btn btn-success mt-3">Tambahkan komentar</button>
+                        @if(auth()->check())
+                        <button type="submit" class="btn btn-success mt-3 mb-5">Tambahkan komentar</button>
+                        @else
+                        <a href="{{route('login')}}" class="btn btn-success mt-3 mb-5">login terlebih dahulu</a>
+                        @endif
                     </form>
                 </div>
             </div>

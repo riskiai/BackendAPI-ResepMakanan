@@ -106,7 +106,6 @@
                             </div>
                         </div>
                         @endforeach
-
                 </div>
             </div>
         </section>
@@ -142,8 +141,6 @@
                         </div>
                     </div>
                     @endforeach --}}
-
-
                 </div>
         </section>
 
