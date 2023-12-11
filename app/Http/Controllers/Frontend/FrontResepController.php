@@ -11,6 +11,22 @@ use Illuminate\Support\Facades\Auth;
 
 class FrontResepController extends Controller
 {
+
+    // public function search(Request $request)
+    //     {
+    //         $query = Resep::latest();
+
+    //         /* Melakukan Filter Data */
+    //         if ($request->get('search')) {
+    //             $query->where('judul', 'LIKE', '%' . $request->get('search') . '%');
+    //         }
+
+    //         $recipes = $query->paginate(3);
+
+    //         return view('userpage.resep', compact('recipes'));
+    //     }
+
+
     public function index(Request $request)
     {
         $latestResep = Resep::with('comments')->latest()->first();
