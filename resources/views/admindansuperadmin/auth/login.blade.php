@@ -10,10 +10,10 @@
                         <img src="{{asset('assets/image/login-img-1.png')}}" alt="">
                     </div>
                     <div class="img-register">
-                        <img src="{{url('assets/image/login-img-3.png')}}" alt="">
+                        <img src="{{asset('assets/image/login-img-3.png')}}" alt="">
                     </div>
                     <div class="img-register">
-                        <img src="{{url('assets/image/login-img-2.png')}}" alt="">
+                        <img src="{{asset('assets/image/login-img-2.png')}}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-5 col-12 offset-lg-1">

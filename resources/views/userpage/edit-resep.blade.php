@@ -5,43 +5,48 @@
         <div class="container mt-5">
             <h1 class="mb-5 text-center pt-5">AYO BAGIKAN RESEP TERBAIKMU</h1>
             <div class="row">
-                <form  action="{{ route('guest.tulis-resep.store') }}" method="POST" enctype="multipart/form-data">
+                <form  action="{{ route('guest.resepku.update',['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="desc-resep row">
-                        <div class="form-group mb-3">
-                            <label for="foto">Photo Resep</label>
-                            <input type="file" name="image" class="form-control " id="foto" >
+                        <div class="form-group ">
+                            <label for="exampleInputFile">Foto Profil</label>
+                            <input type="file" name="image" class="form-control" id="exampleInputFile">
+                            @if($data->image)
+                               <img src="{{ asset('storage/photo-resep/'.$data->image) }}" alt="" width="100">
+                               <br>
+                               <input type="checkbox" name="remove_image" id="remove_image"> Hapus gambar yang ada
+                            @endif
                             @error('image')
-                                <small>{{ $message }}</small>
+                               <small>{{ $message }}</small>
                             @enderror
-                        </div>
+                         </div>
                         <div class=" col-12">
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Porsi :</label>
-                                    <input type="text" name="porsi" class="form-control" id="inputEmail4">
+                                    <input type="text" name="porsi" class="form-control" id="inputEmail4" value="{{$data->porsi}}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputPassword4" class="form-label">Waktu memasak :</label>
-                                    <input type="text" name="waktu" class="form-control" id="inputPassword4">
+                                    <input type="text" name="waktu" class="form-control" id="inputPassword4" value="{{$data->waktu}}">
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <label for="">Judul :</label>
                                     <input type="text" name="judul" class=" form-control" id="judul"
-                                        placeholder="Judul Resep Makanan">
+                                        placeholder="Judul Resep Makanan" value="{{$data->judul}}">
                                 </div>
                                 <div class="mt-3">
                                     <textarea class="form-control"
-                                        placeholder="Tuliskan Deskripsi singkat" name="description"></textarea>
+                                        placeholder="Tuliskan Deskripsi singkat" name="description">{{$data->description}}</textarea>
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <label for="editor">Bahan & Langkah</label>
-                                    <textarea id="editor" name="bahan_langkah"></textarea>
+                                    <textarea id="editor" name="bahan_langkah">{{$data->bahan_langkah}}</textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     {{-- <div class="bahan-resep row mt-5">
                         <h3>Bahan - Bahan</h3>
                         <div class="col-md-12 ">

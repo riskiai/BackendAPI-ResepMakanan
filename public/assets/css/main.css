@@ -29,10 +29,24 @@ textarea:focus, input:focus{
     height: 30px;
     padding:  5px 20px !important;
 }
-.btn-edit a,
-.btn-delete a{
-    color: #FFF;
+
+.btn-delete,
+.btn-edit{
+    color: #FFF !important;
 }
+
+.btn-delete:hover {
+    color: #FF3939 !important;
+    background-color: #FFF;
+    border: 1px solid #FF3939;
+}
+
+.btn-edit:hover {
+    color: #26A8D2 !important;
+    background-color: #FFF;
+    border: 1px solid #26A8D2;
+}
+
 
 .btn-delete{
     text-decoration: none;

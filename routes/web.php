@@ -65,10 +65,21 @@ Route::get('/detail-artikel/{id}', [FrontArtikelController::class,'detail'])->na
 Route::group(['prefix' => 'guest', 'middleware' => ['auth'], 'as' => 'guest.'], function(){
     Route::get('/profile',[ProfileController::class, 'index'])->name('profile');
     Route::get('/profile/edit/{id}',[ProfileController::class, 'edit'])->name('profile.edit');
+
     Route::put('/update/{id}', [ProfileController::class, 'updateProfile'])->name('profile.update');
     Route::get('/profile/password',[ProfileController::class, 'editPassword'])->name('profile.edit-password');
+
     Route::get('/tulis-resep',[GuestResepController::class, 'index'])->name('tulis-resep');
-    Route::get('/daftaresepku',[GuestResepController::class, 'detail'])->name('resepku');
+    Route::post('/tulis-resep',[GuestResepController::class, 'uploadFotoBahan'])->name('ckeditor.upload');
+    Route::post('/tulis-resep/store', [GuestResepController::class, 'store'])->name('tulis-resep.store');
+    Route::get('/edit-resep/edit/{id}', [GuestResepController::class, 'edit'])->name('resepku.edit');
+    Route::put('/resepku/update/{id}', [GuestResepController::class, 'update'])->name('resepku.update');
+    Route::delete('/resepku/delete/{id}', [GuestResepController::class, 'delete'])->name('resepku.delete');
+
+    Route::get('/resepku',[GuestResepController::class, 'detail'])->name('resepku');
+
+
+
 });
 
 

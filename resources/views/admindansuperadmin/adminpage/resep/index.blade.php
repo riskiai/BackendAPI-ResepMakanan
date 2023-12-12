@@ -118,13 +118,12 @@
                                 <p>Apakah Kamu yakin ingin menghapus data Judul Article <b>{!!$dataResep->judul; !!}</b></p>
                               </div>
                               <div class="modal-footer justify-content-between">
-                                <form action="{{ route('admin.resep.delete', ['id' => $dataResep->id]) }}" method="POST">
+                                <form form action="{{ route('admin.resep.delete', ['id' => $dataResep->id]) }}" method="POST">
                                   @csrf
                                   @method('DELETE')
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                  <button type="submit" class="btn btn-primary">Ya, Hapus Data</button>
                                 </form>
-
                               </div>
                             </div>
                             <!-- /.modal-content -->
