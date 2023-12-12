@@ -1,4 +1,6 @@
 @extends('userpage.layouts.main')
+@section('artikel-active', 'active')
+
 @section('content')
 
 <main>
@@ -6,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-12 order-2 order-lg-0 position-relative ">
-                    <img src="{{asset('assets/image/nasi-goreng.png')}}" alt="" class="w-100">
+                    <img src="{{ $latestArticle->image ? asset('storage/photo-article/' . $latestArticle->image) : asset('assets/image/nasi-goreng.png') }}" alt="" class="w-100">
                     <p class="p-0">{{$latestArticle->created_at->diffForHumans()}}</p>
                     <h3>{{$latestArticle->judul}}</h3>
                     <a href="{{route('detail-artikel',$latestArticle->id)}}" class="stretched-link p-0 text-black text-decoration-none">{{strip_tags($latestArticle->description)}}</a>
@@ -25,13 +27,13 @@
                         @endif
                     @endforeach
                 </div>
-                
+
             </div>
             <div class="row mt-5 mb-5">
                 @foreach ($articles as $item)
                 <div class="d-flex flex-column flex-md-row align-items-center card-artikel p-3 position-relative mb-3">
                     <div class="col-md-4 col-12">
-                        <img src="{{ asset('storage/photo-article/' . $item->image) }}" alt="" class="w-100">
+                        <img src="{{  $item->image ? asset('storage/photo-article/' . $item->image) : asset('assets/image/nasi-goreng.png') }}" alt="" class="w-100">
                     </div>
                     <div class="card-desc col-md-8 col-12 ps-md-3">
                         <h3>{{$item->judul}}</h3>
@@ -40,7 +42,7 @@
                     </div>
                 </div>
             @endforeach
-            
+
 
             </div>
         </div>

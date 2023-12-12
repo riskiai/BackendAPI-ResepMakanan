@@ -1,4 +1,5 @@
 @extends('userpage.layouts.main')
+@section('artikel-active', 'active')
 @section('content')
 
 <main>

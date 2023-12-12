@@ -12,16 +12,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Beranda</a>
+                        <a class="nav-link  @yield('home-active')" aria-current="page" href="{{ route('home') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('home')}}#bahan">Bahan Masakan</a>
+                        <a class="nav-link  @yield('bahan-active')" href="{{route('home')}}#bahan">Bahan Masakan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('home')}}#rekomendasi">Resep</a>
+                        <a class="nav-link  @yield('resep-active')" href="{{route('home')}}#rekomendasi">Resep</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('home')}}#artikel">Artikel</a>
+                        <a class="nav-link  @yield('artikel-active')" href="{{route('home')}}#artikel">Artikel</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('home')}}#nutrisi">Nutrisi</a>
@@ -54,7 +54,6 @@
         </div>
     </nav>
 </header>
-
 @else
 <header>
     <nav class="navbar navbar-expand-lg" style="background-color:#FFF;" id="navbar">
@@ -69,16 +68,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Beranda</a>
+                        <a class="nav-link  @yield('home-active')" aria-current="page" href="{{ route('home') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('home')}}#bahan">Bahan Masakan</a>
+                        <a class="nav-link  @yield('bahan-active')" href="{{route('home')}}#bahan">Bahan Masakan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('home')}}#rekomendasi">Resep</a>
+                        <a class="nav-link @yield('resep-active')" href="{{route('home')}}#rekomendasi">Resep</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('home')}}#artikel">Artikel</a>
+                        <a class="nav-link  @yield('artikel-active')" href="{{route('home')}}#artikel">Artikel</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('home')}}#nutrisi">Nutrisi</a>

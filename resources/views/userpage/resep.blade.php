@@ -1,4 +1,5 @@
 @extends('userpage.layouts.main')
+@section('resep-active', 'active')
 @section('content')
 
 <main>
@@ -11,7 +12,7 @@
                     <input type="text"  placeholder="cari resep" name="search">
                 </div>
             </form>
-            
+
             <div class="row pt-5">
                 <div class="col-lg-8 col-12 order-2 order-lg-0 ">
                         <div class="position-relative">
@@ -97,7 +98,7 @@
             </div>
         </div>
     </section>
-    
+
     <div class="pagination justify-content-center">
         {{ $recipes->links() }}
     </div>

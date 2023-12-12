@@ -239,10 +239,18 @@ main{
 }
 
 .pagination a{
-    font-size: 1.6rem;
+    border: 1px solid var(--tertiary);
     color: var(--tertiary);
     text-decoration: none;
 }
+
+.page-item.active .page-link{
+    background-color: var(--tertiary);
+    color: #FFF;
+    border: 1px solid var(--secondary);
+}
+
+
 
 
 /********** Detail artikel *************/

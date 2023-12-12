@@ -1,4 +1,6 @@
 @extends('userpage.layouts.main')
+@section('bahan-active', 'active')
+
 @section('content')
 
 <main>

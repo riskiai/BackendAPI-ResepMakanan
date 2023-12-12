@@ -133,7 +133,6 @@ class GuestResepController extends Controller
             $data->image = $filename;
         }
 
-
         $data->save(); // Simpan pengguna yang telah diperbarui
 
         return redirect()->route('guest.resepku');
@@ -141,11 +140,9 @@ class GuestResepController extends Controller
 
     public function delete(Request $request, $id){
         $data = Resep::find($id);
-
         if($data){
             $data->delete();
         }
-
         return redirect()->route('guest.resepku');
     }
 }

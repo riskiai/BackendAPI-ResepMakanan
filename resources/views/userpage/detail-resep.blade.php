@@ -1,4 +1,5 @@
 @extends('userpage.layouts.main')
+@section('resep-active', 'active')
 @section('content')
 
 <main>
@@ -22,10 +23,10 @@
                     <p>{!! $resep->description !!}</p>
                 </div>
                     <div class="img-author d-flex  ">
-                        <img src="{{Auth::user()->image ? asset('storage/photo-user/' .Auth::user()->image) : asset('assets/image/default-profile.jpg')}}" alt="User Image">
+                        <img src="{{$resep->user->image ? asset('storage/photo-user/' .$resep->$user->image) : asset('assets/image/default-profile.jpg')}}" alt="User Image">
                         <div class="ps-2 d-flex flex-column">
                             <p class="m-0">{{$resep->user->name}}</p>
-                            <p class="time p-0">{{$resep->created_at}}</p>
+                            <p class="time p-0">{{$resep->created_at->diffForHumans()}}</p>
                         </div>
                     </div>
                 </div>
@@ -110,7 +111,7 @@
                     </div>
                     <div>
                         @foreach ($resep->comments as $item )
-                        <div class="d-flex flex-row p-3 mb-3"> 
+                        <div class="d-flex flex-row p-3 mb-3">
                             {{-- <img src="https://asapcairtenajar.com/frontend/assets/image/user.png"
                             style="width: 40px;height:40px" class="rounded-circle mr-3 me-3"> --}}
 

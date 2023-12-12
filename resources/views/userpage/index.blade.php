@@ -1,4 +1,6 @@
 @extends('userpage.layouts.main')
+@section('home-active', 'active')
+
 @section('content')
 
     <main>
@@ -60,7 +62,7 @@
                             @if($index < 5)
                             <div class="card shadow col-12 col-lg-auto" style="width: 25rem;">
                                 {{-- <img src="{{ asset('assets/image/nasi-goreng.png') }}" class="card-img-top" alt="..."> --}}
-                                <img src="{{ asset('storage/photo-resep/' . $item->image) }}" alt="" class="card-img-top">
+                                <img src="{{ $item->image ? asset('storage/photo-resep/' . $item->image) : asset('assets/image/nasi-goreng.png') }}" alt="" class="card-img-top" style="max-height: 300px">
                                 <div class="card-body  position-relative">
                                     <h5 class="card-title">{{$item->judul}}</h5>
                                     <p class="card-text"><a href="{{route('detail-resep',$item->id)}}" class="stretched-link text-decoration-none text-black">{{ Illuminate\Support\Str::limit(strip_tags($item->description),30) }}</a></p>
