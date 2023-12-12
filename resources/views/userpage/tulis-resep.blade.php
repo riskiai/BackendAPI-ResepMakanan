@@ -16,9 +16,9 @@
                             <label for="foto">Photo Resep</label>
                             <input type="file" name="image" class="form-control " id="foto" >
                             @error('image')
-                              <small>{{ $message }}</small>
-                          @enderror
-                          </div>
+                                <small>{{ $message }}</small>
+                            @enderror
+                        </div>
                         <div class=" col-12">
                             <div class="row">
                                 <div class="col-md-6">
