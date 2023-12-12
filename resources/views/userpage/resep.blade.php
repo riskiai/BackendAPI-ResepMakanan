@@ -6,7 +6,9 @@
     <section id="resep" class="pt-5 mt-5">
         <div class="container">
 
-            <form action="{{ route('resep') }}" class="pb-5" method="get">
+            <form action="{{route('resep.search')}}" class="pb-5" method="POST">
+                @csrf
+                @method('GET')
                 <div class="input pt-2">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text"  placeholder="cari resep" name="search">

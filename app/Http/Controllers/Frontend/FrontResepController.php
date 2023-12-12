@@ -33,14 +33,26 @@ class FrontResepController extends Controller
 
         $query = Resep::latest();
 
-        /* Melakukan Filter Data */
-        if ($request->get('search')) {
-            $query->where('judul', 'LIKE', '%' . $request->get('search') . '%');
-        }
-
         $recipes = $query->paginate(3);
 
         return view('userpage.resep', compact('recipes', 'latestResep'));
+    }
+
+    public function search(Request $request){
+        $query = Resep::latest();
+        $searchInput = $request->get('search');
+
+
+        if ($searchInput) {
+            $query->where('judul', 'LIKE', '%' . $searchInput . '%');
+        }
+            $recipes = $query->paginate(5);
+            /* Melakukan Filter Data */
+
+
+
+            return view('userpage.hasil-pencarian', compact('recipes','searchInput'));
+
     }
 
     public function detail(Request $request, $id){

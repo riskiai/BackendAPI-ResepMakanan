@@ -10,7 +10,9 @@
                 <div class="row">
                     <div class="text-center text-white">
                         <h1>Mau Masak Apa Hari ini ?</h1>
-                        <form action="#" >
+                        <form action="{{route('resep.search')}}"  method="POST">
+                            @csrf
+                            @method('GET')
                             <div class="input pt-2">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <input type="text"  placeholder="cari resep" name="search">
