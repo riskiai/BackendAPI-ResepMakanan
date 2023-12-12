@@ -9,13 +9,22 @@ use App\Models\Article;
 
 class FrontArtikelController extends Controller
 {
-    public function index(){
-        $article = Article::all();
+    public function index(Request $request)
+    {
         $latestArticle = Article::latest()->first();
-
-
-        return view('userpage.artikel',compact('article','latestArticle'));
+    
+        $query = Article::latest();
+    
+        if ($request->get('search')) {
+            $query->where('judul', 'LIKE', '%' . $request->get('search') . '%');
+        }
+    
+        $articles = $query->paginate(3);
+    
+        return view('userpage.artikel', compact('latestArticle', 'articles'));
     }
+    
+
 
     public function detail(Request $request, $id){
         $article = Article::all()->where('id',$id)->firstOrFail();

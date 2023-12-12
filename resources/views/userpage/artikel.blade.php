@@ -13,24 +13,25 @@
                 </div>
                 <div class="col-lg-4 order-1">
                     <h3>Artikel Terbaru</h3>
-                    @foreach ($article as $index => $item )
+                    @foreach ($articles as $index => $item)
                         @if ($index < 3)
-                        <div class="card-artikel position-relative">
-                            <div class="d-flex gap-2 p-2">
-                                <h5>{{$index + 1}}</h5>
-                                <a href="#" class="stretched-link">{{$item->judul}}</a>
+                            <div class="card-artikel position-relative">
+                                <div class="d-flex gap-2 p-2">
+                                    <h5>{{$index + 1}}</h5>
+                                    <a href="#" class="stretched-link">{{$item->judul}}</a>
+                                </div>
+                                <p>{{$item->created_at->diffForHumans()}}</p>
                             </div>
-                            <p>{{$item->created_at->diffForHumans()}}</p>
-                        </div>
                         @endif
                     @endforeach
                 </div>
+                
             </div>
             <div class="row mt-5 mb-5">
-                @foreach ($article as $item)
+                @foreach ($articles as $item)
                 <div class="d-flex flex-column flex-md-row align-items-center card-artikel p-3 position-relative mb-3">
                     <div class="col-md-4 col-12">
-                        <img class="w-100" src="{{('frontend/img/nasi-goreng.png')}}" alt="nasi-goreng">
+                        <img src="{{ asset('storage/photo-article/' . $item->image) }}" alt="" class="w-100">
                     </div>
                     <div class="card-desc col-md-8 col-12 ps-md-3">
                         <h3>{{$item->judul}}</h3>
@@ -38,12 +39,13 @@
                         <p class="pt-5 ps-0">{{$item->created_at->diffForHumans()}}</p>
                     </div>
                 </div>
-                @endforeach
+            @endforeach
+            
 
             </div>
         </div>
     </section>
-    <nav>
+    {{-- <nav>
         <ul class="pagination gap-3 text-decoration-none">
             <li><a href="#">
                 <span class="fa-solid fa-chevron-left"></span>
@@ -55,7 +57,11 @@
                 <span class="fa-solid fa-chevron-right"></span>
             </a></li>
         </ul>
-    </nav>
+    </nav> --}}
+
+    <div class="pagination justify-content-center">
+        {{  $articles->links() }}
+    </div>
 
 </main>
 @endsection

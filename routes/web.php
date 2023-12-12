@@ -50,10 +50,13 @@ Route::post('/register_proses', [RegisterController::class, 'register_proses'])-
 /* User Page */
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/bahan', [FrontBahanController::class,'index'])->name('bahan');
-Route::get('/resep', [FrontResepController::class,'index'])->name('resep');
 Route::get('/nutrisi', [FrontNutrisiController::class,'index'])->name('nutrisi');
+
+Route::get('/resep', [FrontResepController::class,'index'])->name('resep');
+Route::get('/resep/search', [FrontResepController::class,'search'])->name('resep.search');
 Route::get('/detail-resep/{id}', [FrontResepController::class,'detail'])->name('detail-resep');
 Route::post('/detail-resep/{id}', [FrontResepController::class, 'addComment'])->name('detail-resep.addComment');
+
 Route::get('/artikel', [FrontArtikelController::class,'index'])->name('artikel');
 Route::get('/detail-artikel/{id}', [FrontArtikelController::class,'detail'])->name('detail-artikel');
 
