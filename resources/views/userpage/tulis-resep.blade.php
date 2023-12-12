@@ -5,7 +5,8 @@
         <div class="container mt-5">
             <h1 class="mb-5 text-center pt-5">AYO BAGIKAN RESEP TERBAIKMU</h1>
             <div class="row">
-                <form action="">
+                <form>
+                    @csrf
                     <div class="desc-resep row">
                         {{-- <div class="col-12 col-md-4 pt-4">
                             <div class="upload-img text-center mx-auto">
@@ -23,15 +24,21 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Porsi :</label>
-                                    <input type="email" class="form-control" id="inputEmail4">
+                                    <input type="text" name="porsi" class="form-control" id="inputEmail4">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputPassword4" class="form-label">Waktu memasak :</label>
-                                    <input type="password" class="form-control" id="inputPassword4">
+                                    <input type="text" name="waktu" class="form-control" id="inputPassword4">
                                 </div>
                                 <div class="col-md-12 mt-3">
-                                    <input type="text" class=" form-control" id="judul"
+                                    <label for="">Judul :</label>
+                                    <input type="text" name="judul" class=" form-control" id="judul"
                                         placeholder="Judul Resep Makanan">
+                                </div>
+                                <div class="col-md-12 mt-3">
+                                    <label for="">Bahan & Langkah</label>
+
+                                    <textarea id="editor" name="bahan_langkah"></textarea>
                                 </div>
                                 <div class="mt-3">
                                     <textarea class="form-control"
@@ -75,6 +82,19 @@
                         <a href="#" class="btn-primary text-decoration-none ms-auto text-center d-block"> Kirim </a>
                     </div>
                 </form>
+                <script>
+                    ClassicEditor
+                        .create( document.querySelector( '#editor' ),
+                        {
+                            ckfinder:
+                            {
+                                uploadUrl:"{{route('ckeditor.upload',['_token'=>csrf_token()])}}",
+                            }
+                        })
+                        .catch( error => {
+                            console.error( error );
+                        } );
+                </script>
             </div>
         </div>
     </section>
