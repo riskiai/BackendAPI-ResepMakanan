@@ -64,7 +64,7 @@
                             @if($index < 5)
                             <div class="card shadow col-12 col-lg-auto" style="width: 25rem;">
                                 {{-- <img src="{{ asset('assets/image/nasi-goreng.png') }}" class="card-img-top" alt="..."> --}}
-                                <img src="{{ $item->image ? asset('storage/photo-resep/' . $item->image) : asset('assets/image/nasi-goreng.png') }}" alt="gambar-{{$item->judul}}"class="card-img-top" style="max-height: 300px">
+                                <img src="{{ $item->image ? asset('storage/photo-resep/' . $item->image) : asset('assets/image/nasi-goreng.png') }}" alt="gambar-{{$item->judul}}"class="card-img-top object-fit-cover" style="height: 260px">
                                 <div class="card-body  position-relative">
                                     <h5 class="card-title">{{$item->judul}}</h5>
                                     <p class="card-text"><a href="{{route('detail-resep',$item->id)}}" class="stretched-link text-decoration-none text-black">{{ Illuminate\Support\Str::limit(strip_tags($item->description),30) }}</a></p>
@@ -97,7 +97,7 @@
                         @foreach ($articles as $index => $item )
                             @if ($index < 5)
                         <div class="card shadow col-12 col-lg-auto" style="width: 15rem;">
-                            <img src="{{ asset('storage/photo-article/' . $item->image) }}" alt="gambar-{{$item->judul}}" class="card-img-top">
+                            <img src="{{ asset('storage/photo-article/' . $item->image) }}" alt="gambar-{{$item->judul}}" class="card-img-top object-fit-cover" style="height:200px">
                             <div class="card-body  position-relative">
                                 <h5 class="card-title">{{$item->judul}}</h5>
                                 <p class="card-text"><a href="{{route('detail-artikel',$item->id)}}" class="stretched-link text-decoration-none text-black">
