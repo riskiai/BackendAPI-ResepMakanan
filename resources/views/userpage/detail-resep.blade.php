@@ -23,7 +23,7 @@
                     <p>{!! $resep->description !!}</p>
                 </div>
                     <div class="img-author d-flex  ">
-                        <img src="{{$resep->user->image ? asset('storage/photo-user/' .$resep->$user->image) : asset('assets/image/default-profile.jpg')}}" alt="User Image">
+                        <img src="{{$resep->user->image ? asset('storage/photo-user/' .$resep->user->image) : asset('assets/image/default-profile.jpg')}}" alt="User Image">
                         <div class="ps-2 d-flex flex-column">
                             <p class="m-0">{{$resep->user->name}}</p>
                             <p class="time p-0">{{$resep->created_at->diffForHumans()}}</p>
@@ -33,7 +33,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    {!!$resep->bahan_langkah!!}
+                    {!! str_replace('<img ', '<img class="img-bahan" ',$resep->bahan_langkah) !!}
                 </div>
             </div>
             {{-- <div class="row">
@@ -115,7 +115,7 @@
                             {{-- <img src="https://asapcairtenajar.com/frontend/assets/image/user.png"
                             style="width: 40px;height:40px" class="rounded-circle mr-3 me-3"> --}}
 
-                            <img src="{{Auth::user()->image ? asset('storage/photo-user/' .Auth::user()->image) : asset('assets/image/default-profile.jpg')}}"  style="width: 40px; height:40px" class="rounded-circle mr-3 me-3" alt="User Image">
+                            <img src="{{$item->user->image ? asset('storage/photo-user/' . $item->user->image) : asset('assets/image/default-profile.jpg')}}"  style="width: 40px; height:40px" class="rounded-circle mr-3 me-3" alt="User Image">
                         <div class="w-100">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex flex-row align-items-center"><span class="mr-2 comment-name"><B>{{$item->user->name}}</B></span>

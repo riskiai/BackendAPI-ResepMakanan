@@ -20,7 +20,7 @@
             @foreach ($recipes as $item )
                 <div class="d-flex flex-column  flex-md-row  card-artikel mt-5 p-md-3 position-relative">
                     <div class="col-md-4 col-12">
-                        <img class="w-100 object-fit-fill" src="{{ asset('storage/photo-resep/' . $item->image) }}" style="max-height:200px " alt="nasi-goreng">
+                        <img class="w-100 object-fit-cover" src="{{ asset('storage/photo-resep/' . $item->image) }}" style="max-height:200px " alt="nasi-goreng">
                     </div>
                     <div class="col-md-8 col-12  ps-md-3 ">
                         <div class="resep-link d-flex justify-content-between">
@@ -31,7 +31,7 @@
                             <form action="{{route('guest.resepku.delete',$item->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn-delete">Delete</button>
+                                <button type="submit" class="btn-delete btn">Delete</button>
                             </form>
                             {{-- <a data-toggle="modal" data-target="#modal-hapus{{ $item->id }}" class="btn-delete"></i>Delete</a> --}}
                         </div>

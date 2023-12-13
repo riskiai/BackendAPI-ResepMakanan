@@ -21,7 +21,7 @@
                         <img class="w-100" src="{{ asset('storage/photo-resep/' . $item->image) }}" alt="nasi-goreng">
                     </div>
                     <div class="col-8 ps-3">
-                        <h3>{{$item->judul}}</h3>
+                        <a class="stretched-link" href="{{route('detail-resep',$item->id)}}">{{$item->judul}}</a>
                         <p class="p-0"> {{ Illuminate\Support\Str::limit(strip_tags($item->description),100) }}</p>
                          <div class="d-flex gap-3 ">
                         <p><i class="fa-solid fa-utensils"></i> {{$item->porsi}} </p>
