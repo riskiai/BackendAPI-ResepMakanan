@@ -63,7 +63,7 @@ class ResepController extends Controller
 
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
-            'image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'image' => 'required|mimes:png,jpg,jpeg,webp|max:2048',
             'judul' => 'required',
             'waktu' => 'required',
             'porsi' => 'required',

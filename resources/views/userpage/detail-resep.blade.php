@@ -8,7 +8,7 @@
             <h2>{{$resep->judul}}</h2>
             <div class="row pt-3">
                 <div class="col-lg-7">
-                    <img src="{{ asset('storage/photo-resep/' . $resep->image) }}" alt="" class="w-100">
+                    <img src="{{ asset('storage/photo-resep/' . $resep->image) }}" alt="gambar-{{$resep->judul}}" class="w-100">
                 </div>
                 <div class="col-lg-5 pt-3 d-flex flex-column justify-content-between">
                     <div>

@@ -9,7 +9,7 @@
                 <h1>{{$article->judul}}</h1>
                 <p>{{$article->created_at->diffForHumans()}}</p>
                 <div class="col-lg-11 col-12 pb-5 ">
-                    <img src="{{ asset('storage/photo-article/' . $article->image) }}" alt="" class="card-img-top">
+                    <img src="{{ asset('storage/photo-article/' . $article->image) }}" alt="gambar-{{$article->judul}}" class="card-img-top">
                 </div>
                 <div class="col-12">
                     {!!$article->description!!}

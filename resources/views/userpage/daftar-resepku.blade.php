@@ -20,7 +20,7 @@
             @foreach ($recipes as $item )
                 <div class="d-flex flex-column  flex-md-row  card-artikel mt-5 p-md-3 position-relative">
                     <div class="col-md-4 col-12">
-                        <img class="w-100 object-fit-cover" src="{{ asset('storage/photo-resep/' . $item->image) }}" style="max-height:200px " alt="nasi-goreng">
+                        <img class="w-100 object-fit-cover" src="{{ asset('storage/photo-resep/' . $item->image) }}" style="max-height:200px " alt="gambar-{{$item->judul}}">
                     </div>
                     <div class="col-md-8 col-12  ps-md-3 ">
                         <div class="resep-link d-flex justify-content-between">

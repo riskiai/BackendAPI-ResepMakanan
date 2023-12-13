@@ -95,7 +95,7 @@ class GuestResepController extends Controller
 
     public function update(Request $request, $id){
         $validator = Validator::make($request->all(),[
-            'image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
+            'image' => 'nullable|mimes:png,jpg,jpeg,webp|max:2048',
             'judul' => 'required',
             'waktu' => 'required',
             'porsi' => 'required',

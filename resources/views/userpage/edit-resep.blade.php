@@ -13,7 +13,7 @@
                             <label for="exampleInputFile">Foto Profil</label>
                             <input type="file" name="image" class="form-control" id="exampleInputFile">
                             @if($data->image)
-                               <img src="{{ asset('storage/photo-resep/'.$data->image) }}" alt="" width="100">
+                               <img src="{{ asset('storage/photo-resep/'.$data->image) }}" alt="gambar-{{$data->judul}}" width="100">
                                <br>
                                <input type="checkbox" name="remove_image" id="remove_image"> Hapus gambar yang ada
                             @endif

@@ -18,7 +18,7 @@
                 @foreach ($recipes as $item )
                 <div class="d-flex flex-colum card-artikel p-3 mb-3">
                     <div class="col-4">
-                        <img class="w-100" src="{{ asset('storage/photo-resep/' . $item->image) }}" alt="nasi-goreng">
+                        <img class="w-100" src="{{ asset('storage/photo-resep/' . $item->image) }}" alt="gambar-{{$item->judul}}">
                     </div>
                     <div class="col-8 ps-3">
                         <a class="stretched-link" href="{{route('detail-resep',$item->id)}}">{{$item->judul}}</a>
