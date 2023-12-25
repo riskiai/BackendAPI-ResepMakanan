@@ -49,8 +49,6 @@ class FrontResepController extends Controller
             $recipes = $query->paginate(5);
             /* Melakukan Filter Data */
 
-
-
             return view('userpage.hasil-pencarian', compact('recipes','searchInput'));
 
     }

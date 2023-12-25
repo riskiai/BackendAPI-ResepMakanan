@@ -27,6 +27,12 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('lte/plugins/summernote/summernote-bs4.min.css') }}">
 
+  <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/adminlte.min.css?v=3.2.0') }}">
+  <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/plugins/dropzone/dropzone.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.css') }}">
+
   {{-- Data Table --}}
   @yield('css')
 
@@ -285,12 +291,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="{{ route('superadmin.datatable.clientside') }}" class="nav-link">
                   <i class="fas fa-desktop nav-icon"></i>
                   <p>Client Side</p>
                 </a>
-              </li>
+              </li> --}}
               <li class="nav-item">
                 <a href="{{ route('superadmin.datatable.serverside') }}" class="nav-link">
                   <i class="fas fa-server nav-icon"></i>
@@ -453,6 +459,18 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('lte/dist/js/pages/dashboard.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+
+<script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+<script src="{{ asset('assets/js/adminlte.min.js?v=3.2.0') }}"></script>
+
+<!-- Summernote -->
+<script src="{{ asset('assets/plugins/summernote/summernote-bs4.min.js') }}"></script>
+
+<script src="{{ asset('assets/plugins/dropzone/dropzone.js') }}"></script>
+
+<script src="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 
 
 @if ($message = Session::get('success'))

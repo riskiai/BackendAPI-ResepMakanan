@@ -84,7 +84,7 @@ Route::group(['prefix' => 'guest', 'middleware' => ['auth'], 'as' => 'guest.'], 
 
 
 /* Admin Page Dan Super Admin */
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 /* Super Admin */
 Route::group(['prefix' => 'superadmin', 'middleware' => ['auth'], 'as' => 'superadmin.'], function(){

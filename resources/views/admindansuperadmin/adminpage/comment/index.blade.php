@@ -114,8 +114,7 @@
                   {{ $data->onEachSide(2)->links() }}
               </div>
               
-              
-                
+
                 <!-- /.card-body -->
               </div>
               <!-- /.card -->
